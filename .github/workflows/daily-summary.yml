@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # Needed to commit changes
-
+      
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
