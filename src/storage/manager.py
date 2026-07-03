@@ -57,9 +57,11 @@ class StorageManager:
         self.data_dir = Path(data_dir)
         self.config_path = self.data_dir / "config.json"
         self.summaries_dir = self.data_dir / "summaries"
+        self.debug_dir = self.data_dir / "debug"
 
         self.data_dir.mkdir(parents=True, exist_ok=True)
         self.summaries_dir.mkdir(parents=True, exist_ok=True)
+        self.debug_dir.mkdir(parents=True, exist_ok=True)
 
     def load_config(self) -> Config:
         if not self.config_path.exists():
@@ -115,6 +117,14 @@ class StorageManager:
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(markdown)
 
+        return filepath
+
+    def save_debug_json(self, name: str, payload: Any) -> Path:
+        """Persist a debug artifact as formatted JSON under data/debug/."""
+        filepath = self.debug_dir / name
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+            f.write("\n")
         return filepath
 
     def load_subscribers(self) -> list:

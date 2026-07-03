@@ -105,6 +105,12 @@ class HorizonOrchestrator:
             # 4. Analyze with AI
             analyzed_items = await self._analyze_content(merged_items)
             self.console.print(f"🤖 Analyzed {len(analyzed_items)} items with AI\n")
+            scored_path = self._save_scored_items_debug(
+                today=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                items=analyzed_items,
+            )
+            self.console.print(f"🧾 Saved scored items debug artifact to: {scored_path}\n")
+            self._assert_analysis_health(analyzed_items)
 
             # 5. Filter by score threshold
             threshold = self.config.filtering.ai_score_threshold
@@ -257,6 +263,52 @@ class HorizonOrchestrator:
             summary_content = parts[1].strip() if len(parts) > 1 else ""
 
         return front_matter + summary_content + ("\n" if summary_content else "")
+
+    def _save_scored_items_debug(self, today: str, items: List[ContentItem]) -> Path:
+        """Persist scored items for debugging failed or low-signal runs."""
+        payload = {
+            "date": today,
+            "count": len(items),
+            "items": [
+                {
+                    "id": item.id,
+                    "title": item.title,
+                    "source_type": item.source_type.value,
+                    "url": str(item.url),
+                    "author": item.author,
+                    "published_at": item.published_at.isoformat() if item.published_at else None,
+                    "ai_score": item.ai_score,
+                    "ai_reason": item.ai_reason,
+                    "ai_summary": item.ai_summary,
+                    "ai_tags": item.ai_tags,
+                }
+                for item in items
+            ],
+        }
+        return self.storage.save_debug_json(f"scored-{today}.json", payload)
+
+    def _assert_analysis_health(self, items: List[ContentItem]) -> None:
+        """Fail fast when AI analysis systematically fails."""
+        failure_reasons = {
+            "Analysis failed",
+            "Analysis response parse failed",
+        }
+        failed = [
+            item for item in items
+            if (item.ai_reason or "") in failure_reasons
+        ]
+        if not failed:
+            return
+
+        self.console.print(
+            f"[yellow]⚠️ Analysis failures: {len(failed)}/{len(items)} items returned fallback scores.[/yellow]"
+        )
+        if len(failed) == len(items):
+            raise RuntimeError(
+                "AI analysis failed for every fetched item. This usually means the model "
+                "response format or gateway compatibility is broken. Check data/debug/"
+                "scored-*.json and the action logs for parse/provider errors."
+            )
 
     async def fetch_all_sources(self, since: datetime) -> List[ContentItem]:
         """Fetch content from all configured sources.

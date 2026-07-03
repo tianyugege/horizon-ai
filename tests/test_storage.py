@@ -126,3 +126,12 @@ def test_load_config_expands_env_vars_in_ai_base_url(tmp_path, monkeypatch):
     storage = StorageManager(data_dir=str(tmp_path))
     config = storage.load_config()
     assert config.ai.base_url == "https://private-proxy.example/v1"
+
+
+def test_save_debug_json_writes_artifact(tmp_path):
+    storage = StorageManager(data_dir=str(tmp_path))
+
+    path = storage.save_debug_json("scored-test.json", {"ok": True, "count": 2})
+
+    assert path == tmp_path / "debug" / "scored-test.json"
+    assert json.loads(path.read_text(encoding="utf-8")) == {"ok": True, "count": 2}

@@ -16,6 +16,7 @@ from src.models import (
     SourcesConfig,
 )
 from src.orchestrator import HorizonOrchestrator
+from src.storage.manager import StorageManager
 
 
 def make_item(item_id: str, score: float, category: str | None) -> ContentItem:
@@ -188,3 +189,40 @@ def test_run_applies_balanced_digest_before_enrichment(tmp_path, monkeypatch) ->
     asyncio.run(orchestrator.run())
 
     assert enriched_ids == ["ai"]
+
+
+def test_run_raises_when_all_analysis_falls_back_to_zero(tmp_path, monkeypatch) -> None:
+    config = Config(
+        ai=AIConfig(
+            provider="openai",
+            model="test",
+            api_key_env="TEST_API_KEY",
+            languages=[],
+        ),
+        sources=SourcesConfig(),
+        filtering=FilteringConfig(ai_score_threshold=3.0),
+    )
+    storage = StorageManager(data_dir=str(tmp_path / "data"))
+    orchestrator = HorizonOrchestrator(config, storage)
+    items = [
+        make_item("failed-1", 0.0, "ai"),
+        make_item("failed-2", 0.0, "ai"),
+    ]
+    for item in items:
+        item.ai_reason = "Analysis response parse failed"
+
+    async def fetch_all_sources(since):  # type: ignore[no-untyped-def]
+        return items
+
+    async def analyze_content(input_items):  # type: ignore[no-untyped-def]
+        return input_items
+
+    monkeypatch.setattr(orchestrator, "fetch_all_sources", fetch_all_sources)
+    monkeypatch.setattr(orchestrator, "_analyze_content", analyze_content)
+    monkeypatch.chdir(tmp_path)
+
+    with pytest.raises(RuntimeError, match="AI analysis failed for every fetched item"):
+        asyncio.run(orchestrator.run())
+
+    debug_files = list((tmp_path / "data" / "debug").glob("scored-*.json"))
+    assert len(debug_files) == 1
