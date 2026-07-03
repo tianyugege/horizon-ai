@@ -4,6 +4,7 @@ import asyncio
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from typing import List, Dict, Optional
 from urllib.parse import urlparse
 import httpx
@@ -155,40 +156,16 @@ class HorizonOrchestrator:
                 summary_path = self.storage.save_daily_summary(today, summary, language=lang)
                 self.console.print(f"💾 Saved {lang.upper()} summary to: {summary_path}\n")
 
-                # Copy to docs/ for GitHub Pages
                 try:
-                    from pathlib import Path
-
-                    post_filename = f"{today}-summary-{lang}.md"
-                    posts_dir = Path("docs/_posts")
-                    posts_dir.mkdir(parents=True, exist_ok=True)
-
-                    dest_path = posts_dir / post_filename
-
-                    # Add Jekyll front matter
-                    front_matter = (
-                        "---\n"
-                        "layout: default\n"
-                        f"title: \"Horizon Summary: {today} ({lang.upper()})\"\n"
-                        f"date: {today}\n"
-                        f"lang: {lang}\n"
-                        "---\n\n"
+                    published_paths = self._publish_summary_to_docs(today, lang, summary)
+                    self.console.print(
+                        f"📄 Published {lang.upper()} summary to docs: "
+                        f"{', '.join(str(path) for path in published_paths)}\n"
                     )
-
-                    # Strip leading H1 header to avoid duplication with Jekyll title
-                    summary_content = summary
-                    first_line = summary_content.strip().split("\n")[0]
-                    if first_line.startswith("# "):
-                        parts = summary_content.split("\n", 1)
-                        if len(parts) > 1:
-                            summary_content = parts[1].strip()
-
-                    with open(dest_path, "w", encoding="utf-8") as f:
-                        f.write(front_matter + summary_content)
-
-                    self.console.print(f"📄 Copied {lang.upper()} summary to GitHub Pages: {dest_path}\n")
                 except Exception as e:
-                    self.console.print(f"[yellow]⚠️  Failed to copy {lang.upper()} summary to docs/: {e}[/yellow]\n")
+                    self.console.print(
+                        f"[yellow]⚠️  Failed to publish {lang.upper()} summary to docs/: {e}[/yellow]\n"
+                    )
 
                 # Send email if configured
                 if self.email_manager and self.config.email and self.config.email.enabled:
@@ -243,6 +220,43 @@ class HorizonOrchestrator:
             hours = self.config.filtering.time_window_hours
             since = datetime.now(timezone.utc) - timedelta(hours=hours)
         return since
+
+    def _publish_summary_to_docs(self, date: str, lang: str, summary: str) -> List[Path]:
+        """Publish summary into docs for both Jekyll and legacy static paths."""
+        published_paths: List[Path] = []
+
+        posts_dir = Path("docs/_posts")
+        posts_dir.mkdir(parents=True, exist_ok=True)
+        jekyll_path = posts_dir / f"{date}-summary-{lang}.md"
+        jekyll_path.write_text(self._build_jekyll_post(date, lang, summary), encoding="utf-8")
+        published_paths.append(jekyll_path)
+
+        legacy_dir = Path("docs/posts")
+        legacy_dir.mkdir(parents=True, exist_ok=True)
+        legacy_path = legacy_dir / f"horizon-{date}-{lang}.md"
+        legacy_path.write_text(summary, encoding="utf-8")
+        published_paths.append(legacy_path)
+
+        return published_paths
+
+    def _build_jekyll_post(self, date: str, lang: str, summary: str) -> str:
+        """Build a Jekyll-compatible post body with front matter."""
+        front_matter = (
+            "---\n"
+            "layout: default\n"
+            f"title: \"Horizon Summary: {date} ({lang.upper()})\"\n"
+            f"date: {date}\n"
+            f"lang: {lang}\n"
+            "---\n\n"
+        )
+
+        summary_content = summary.strip()
+        first_line = summary_content.split("\n", 1)[0] if summary_content else ""
+        if first_line.startswith("# "):
+            parts = summary_content.split("\n", 1)
+            summary_content = parts[1].strip() if len(parts) > 1 else ""
+
+        return front_matter + summary_content + ("\n" if summary_content else "")
 
     async def fetch_all_sources(self, since: datetime) -> List[ContentItem]:
         """Fetch content from all configured sources.

@@ -17,6 +17,7 @@ from ..models import (
     GitHubSourceConfig, HackerNewsConfig, RSSSourceConfig,
     RedditConfig, RedditSubredditConfig, RedditUserConfig,
     TelegramConfig, TelegramChannelConfig,
+    OSSInsightConfig, GDELTConfig, GoogleNewsConfig,
 )
 from ..storage.manager import StorageManager
 from .presets import load_presets, match_sources
@@ -206,7 +207,9 @@ def build_config(
     reddit_subreddits = []
     reddit_users = []
     telegram_channels = []
-    hn_enabled = False
+    ossinsight_config = None
+    gdelt_config = None
+    google_news_config = None
 
     for src in selected_sources:
         src_type = src.get("type", "")
@@ -248,8 +251,36 @@ def build_config(
                 channel=cfg.get("channel", ""),
                 fetch_limit=cfg.get("fetch_limit", 20),
             ))
-        elif src_type == "hackernews":
-            hn_enabled = True
+        elif src_type == "ossinsight":
+            ossinsight_config = OSSInsightConfig(
+                enabled=True,
+                period=cfg.get("period", "past_24_hours"),
+                languages=cfg.get("languages", ["All", "Python", "TypeScript"]),
+                keywords=cfg.get("keywords", []),
+                min_stars=cfg.get("min_stars", 5),
+                max_items=cfg.get("max_items", 30),
+            )
+        elif src_type == "gdelt":
+            gdelt_config = GDELTConfig(
+                enabled=True,
+                query=cfg.get("query", "artificial intelligence"),
+                mode=cfg.get("mode", "ArtList"),
+                max_records=cfg.get("max_records", 75),
+                timespan=cfg.get("timespan"),
+                language=cfg.get("language"),
+                country=cfg.get("country"),
+                category=cfg.get("category"),
+            )
+        elif src_type == "google_news":
+            google_news_config = GoogleNewsConfig(
+                enabled=True,
+                query=cfg.get("query", "artificial intelligence"),
+                language=cfg.get("language", "en"),
+                country=cfg.get("country", "US"),
+                ceid=cfg.get("ceid"),
+                max_results=cfg.get("max_results", 100),
+                category=cfg.get("category"),
+            )
 
     # Always include HackerNews as a universal source
     hn_config = HackerNewsConfig(
@@ -276,6 +307,9 @@ def build_config(
         rss=rss_sources,
         reddit=reddit_config,
         telegram=telegram_config,
+        ossinsight=ossinsight_config or OSSInsightConfig(),
+        gdelt=gdelt_config,
+        google_news=google_news_config,
     )
 
     filtering = FilteringConfig(
@@ -340,6 +374,52 @@ def merge_configs(new_config: Config, existing_config: Config) -> Config:
         new_subs.append(sub)
     new_subs.extend(existing_subs.values())
     merged.sources.reddit.subreddits = new_subs
+
+    # Merge Reddit users
+    existing_users = {
+        s.username: s
+        for s in (existing_config.sources.reddit.users or [])
+    }
+    new_users = []
+    for user in (merged.sources.reddit.users or []):
+        name = user.username
+        if name in existing_users:
+            del existing_users[name]
+        new_users.append(user)
+    new_users.extend(existing_users.values())
+    merged.sources.reddit.users = new_users
+    merged.sources.reddit.enabled = bool(
+        merged.sources.reddit.subreddits or merged.sources.reddit.users
+    )
+    if existing_config.sources.reddit.fetch_comments and not merged.sources.reddit.fetch_comments:
+        merged.sources.reddit.fetch_comments = existing_config.sources.reddit.fetch_comments
+
+    # Merge Telegram channels
+    existing_channels = {
+        s.channel: s
+        for s in (existing_config.sources.telegram.channels or [])
+    }
+    new_channels = []
+    for channel in (merged.sources.telegram.channels or []):
+        name = channel.channel
+        if name in existing_channels:
+            del existing_channels[name]
+        new_channels.append(channel)
+    new_channels.extend(existing_channels.values())
+    merged.sources.telegram.channels = new_channels
+    merged.sources.telegram.enabled = bool(merged.sources.telegram.channels)
+
+    # Preserve optional singleton sources unless explicitly replaced
+    if existing_config.sources.twitter and not merged.sources.twitter:
+        merged.sources.twitter = existing_config.sources.twitter
+    if existing_config.sources.openbb and not merged.sources.openbb:
+        merged.sources.openbb = existing_config.sources.openbb
+    if existing_config.sources.ossinsight and not merged.sources.ossinsight.enabled:
+        merged.sources.ossinsight = existing_config.sources.ossinsight
+    if existing_config.sources.gdelt and not merged.sources.gdelt:
+        merged.sources.gdelt = existing_config.sources.gdelt
+    if existing_config.sources.google_news and not merged.sources.google_news:
+        merged.sources.google_news = existing_config.sources.google_news
 
     return merged
 
@@ -451,4 +531,14 @@ def _count_sources(config: Config) -> int:
         count += len(config.sources.reddit.users or [])
     if config.sources.telegram.enabled:
         count += len(config.sources.telegram.channels or [])
+    if config.sources.twitter and config.sources.twitter.enabled:
+        count += len(config.sources.twitter.users or [])
+    if config.sources.openbb and config.sources.openbb.enabled:
+        count += len([s for s in config.sources.openbb.watchlists if s.enabled])
+    if config.sources.ossinsight and config.sources.ossinsight.enabled:
+        count += 1
+    if config.sources.gdelt and config.sources.gdelt.enabled:
+        count += 1
+    if config.sources.google_news and config.sources.google_news.enabled:
+        count += 1
     return count

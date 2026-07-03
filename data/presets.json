@@ -42,6 +42,27 @@
           "config": { "owner": "vllm-project", "repo": "vllm" }
         },
         {
+          "type": "github_repo",
+          "description": "Hugging Face Transformers — mainstream model and tooling releases",
+          "description_zh": "Hugging Face Transformers — 主流模型与工具链发布",
+          "tags": ["llm", "transformers"],
+          "config": { "owner": "huggingface", "repo": "transformers" }
+        },
+        {
+          "type": "ossinsight",
+          "description": "OSS Insight trending AI repos — fast-moving open-source model tooling",
+          "description_zh": "OSS Insight AI 趋势仓库 — 快速捕捉开源模型工具动态",
+          "tags": ["ai", "oss", "trending"],
+          "config": { "period": "past_24_hours", "languages": ["All", "Python", "TypeScript"], "keywords": ["llm", "agent", "inference"], "min_stars": 20, "max_items": 20 }
+        },
+        {
+          "type": "google_news",
+          "description": "Google News search for major AI model and agent announcements",
+          "description_zh": "Google News AI 模型与 Agent 发布搜索",
+          "tags": ["ai", "news"],
+          "config": { "query": "large language model OR foundation model OR AI agent", "language": "en", "country": "US", "max_results": 50, "category": "ai-news" }
+        },
+        {
           "type": "rss",
           "description": "QbitAI (量子位) — Chinese AI news and research coverage",
           "description_zh": "量子位 — AI 资讯与前沿报道（微信公众号）",
@@ -90,6 +111,20 @@
           "description_zh": "Linus Torvalds — Linux 之父",
           "tags": ["linux", "kernel"],
           "config": { "username": "torvalds" }
+        },
+        {
+          "type": "github_repo",
+          "description": "Kubernetes releases and infrastructure changes",
+          "description_zh": "Kubernetes 版本发布与基础设施更新",
+          "tags": ["kubernetes", "infra"],
+          "config": { "owner": "kubernetes", "repo": "kubernetes" }
+        },
+        {
+          "type": "ossinsight",
+          "description": "OSS Insight systems trending repos — databases, eBPF, cloud-native",
+          "description_zh": "OSS Insight 系统趋势仓库 — 数据库、eBPF、云原生",
+          "tags": ["systems", "oss", "infra"],
+          "config": { "period": "past_24_hours", "languages": ["All", "Go", "Rust"], "keywords": ["database", "kubernetes", "ebpf"], "min_stars": 15, "max_items": 20 }
         }
       ]
     },
@@ -119,6 +154,20 @@
           "description_zh": "Schneier on Security — 安全分析与评论",
           "tags": ["security", "analysis"],
           "config": { "name": "Schneier on Security", "url": "https://www.schneier.com/feed/atom/", "category": "security" }
+        },
+        {
+          "type": "google_news",
+          "description": "Google News cybersecurity headlines — vulnerabilities, breaches, CVEs",
+          "description_zh": "Google News 网络安全头条 — 漏洞、攻击、CVE",
+          "tags": ["security", "news"],
+          "config": { "query": "cybersecurity OR vulnerability OR CVE", "language": "en", "country": "US", "max_results": 50, "category": "security-news" }
+        },
+        {
+          "type": "gdelt",
+          "description": "GDELT global cyber-risk coverage",
+          "description_zh": "GDELT 全球网络风险报道",
+          "tags": ["security", "global"],
+          "config": { "query": "cybersecurity OR ransomware OR vulnerability", "mode": "ArtList", "max_records": 50, "language": "english", "category": "security-news" }
         }
       ]
     },
@@ -148,6 +197,20 @@
           "description_zh": "CSS-Tricks — 前端技巧与技术",
           "tags": ["css", "frontend"],
           "config": { "name": "CSS-Tricks", "url": "https://css-tricks.com/feed/", "category": "frontend" }
+        },
+        {
+          "type": "github_repo",
+          "description": "Next.js releases and framework evolution",
+          "description_zh": "Next.js 版本发布与框架演进",
+          "tags": ["web", "react", "framework"],
+          "config": { "owner": "vercel", "repo": "next.js" }
+        },
+        {
+          "type": "google_news",
+          "description": "Google News web platform and JavaScript ecosystem search",
+          "description_zh": "Google News Web 平台与 JavaScript 生态搜索",
+          "tags": ["web", "news"],
+          "config": { "query": "javascript framework OR react OR browser engine", "language": "en", "country": "US", "max_results": 50, "category": "web-news" }
         }
       ]
     },
@@ -184,6 +247,20 @@
           "description_zh": "Zig 语言版本发布",
           "tags": ["zig"],
           "config": { "owner": "ziglang", "repo": "zig" }
+        },
+        {
+          "type": "github_repo",
+          "description": "Go language releases",
+          "description_zh": "Go 语言版本发布",
+          "tags": ["go"],
+          "config": { "owner": "golang", "repo": "go" }
+        },
+        {
+          "type": "ossinsight",
+          "description": "OSS Insight PL trends — compilers, language tooling, WebAssembly",
+          "description_zh": "OSS Insight 编程语言趋势 — 编译器、语言工具链、WebAssembly",
+          "tags": ["pl", "oss", "compiler"],
+          "config": { "period": "past_24_hours", "languages": ["All", "Rust", "Go", "TypeScript"], "keywords": ["compiler", "language server", "wasm"], "min_stars": 10, "max_items": 20 }
         }
       ]
     },
@@ -213,6 +290,13 @@
           "description_zh": "Hackaday — 硬件创客与项目",
           "tags": ["hardware", "maker"],
           "config": { "name": "Hackaday", "url": "https://hackaday.com/feed/", "category": "hardware" }
+        },
+        {
+          "type": "google_news",
+          "description": "Google News robotics, embedded, and RISC-V search",
+          "description_zh": "Google News 机器人、嵌入式与 RISC-V 搜索",
+          "tags": ["robotics", "embedded", "news"],
+          "config": { "query": "robotics OR embedded systems OR risc-v", "language": "en", "country": "US", "max_results": 50, "category": "embedded-news" }
         }
       ]
     },
@@ -242,6 +326,20 @@
           "description_zh": "Neovim 编辑器版本发布",
           "tags": ["editor", "neovim"],
           "config": { "owner": "neovim", "repo": "neovim" }
+        },
+        {
+          "type": "github_repo",
+          "description": "uv package manager and Python tooling releases",
+          "description_zh": "uv 包管理器与 Python 工具链发布",
+          "tags": ["python", "cli", "tooling"],
+          "config": { "owner": "astral-sh", "repo": "uv" }
+        },
+        {
+          "type": "ossinsight",
+          "description": "OSS Insight devtools trends — CLI, editors, developer productivity",
+          "description_zh": "OSS Insight 开发工具趋势 — CLI、编辑器、开发者效率",
+          "tags": ["devtools", "oss", "trending"],
+          "config": { "period": "past_24_hours", "languages": ["All", "Rust", "Go", "TypeScript"], "keywords": ["cli", "developer tool", "productivity"], "min_stars": 10, "max_items": 20 }
         }
       ]
     },
@@ -271,6 +369,13 @@
           "description_zh": "Quanta Magazine — 通俗科学报道",
           "tags": ["science", "journalism"],
           "config": { "name": "Quanta Magazine", "url": "https://api.quantamagazine.org/feed/", "category": "science" }
+        },
+        {
+          "type": "google_news",
+          "description": "Google News search for major research breakthroughs and arXiv coverage",
+          "description_zh": "Google News 科研突破与 arXiv 报道搜索",
+          "tags": ["science", "research", "news"],
+          "config": { "query": "scientific discovery OR research paper OR arxiv", "language": "en", "country": "US", "max_results": 50, "category": "science-news" }
         }
       ]
     }
