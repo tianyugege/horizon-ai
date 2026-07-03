@@ -1,9 +1,4 @@
----
-layout: default
-title: "Horizon Summary: 2026-07-03 (EN)"
-date: 2026-07-03
-lang: en
----
+# Horizon Daily - 2026-07-03
 
 > Analyzed 41 items, but none met the importance threshold.
 

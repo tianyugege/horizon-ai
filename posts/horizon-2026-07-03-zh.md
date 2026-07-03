@@ -1,9 +1,4 @@
----
-layout: default
-title: "Horizon Summary: 2026-07-03 (ZH)"
-date: 2026-07-03
-lang: zh
----
+# Horizon 每日速递 - 2026-07-03
 
 > 已分析 41 条内容，但没有达到重要性阈值的条目。
 
