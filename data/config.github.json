@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "ai": {
-    "provider": "deepseek",
-    "model": "deepseek-v4-flash",
+    "provider": "openai",
+    "model": "DeepSeek-V4-flash",
     "base_url": "https://api.cjrouter.com/v1",
     "api_key_env": "DEEPSEEK_API_KEY",
     "temperature": 0.3,
