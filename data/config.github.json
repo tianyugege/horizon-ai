@@ -23,6 +23,11 @@
         "enabled": true
       },
       {
+        "type": "user_events",
+        "username": "torvalds",
+        "enabled": true
+      },
+      {
         "type": "repo_releases",
         "owner": "vllm-project",
         "repo": "vllm",
@@ -39,6 +44,12 @@
         "owner": "triton-lang",
         "repo": "triton",
         "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "astral-sh",
+        "repo": "uv",
+        "enabled": true
       }
     ],
     "hackernews": {
@@ -52,6 +63,36 @@
         "url": "https://simonwillison.net/atom/everything/",
         "enabled": true,
         "category": "ai-tools"
+      },
+      {
+        "name": "Ben's Bites",
+        "url": "https://bensbites.beehiiv.com/feed",
+        "enabled": true,
+        "category": "ai-news"
+      },
+      {
+        "name": "News by smol.ai",
+        "url": "https://news.smol.ai/rss.xml",
+        "enabled": true,
+        "category": "ai-news"
+      },
+      {
+        "name": "Every",
+        "url": "https://every.to/feed",
+        "enabled": true,
+        "category": "ai-essays"
+      },
+      {
+        "name": "Google Blog",
+        "url": "https://blog.google/rss/",
+        "enabled": true,
+        "category": "ai-news"
+      },
+      {
+        "name": "Lenny's Newsletter",
+        "url": "https://www.lennysnewsletter.com/feed",
+        "enabled": true,
+        "category": "product-growth"
       },
       {
         "name": "GitHub Trending - Daily",
@@ -92,7 +133,14 @@
           "min_score": 60
         }
       ],
-      "users": [],
+      "users": [
+        {
+          "username": "iamthatis",
+          "enabled": true,
+          "sort": "new",
+          "fetch_limit": 10
+        }
+      ],
       "fetch_comments": 10
     },
     "telegram": {
@@ -104,6 +152,15 @@
           "fetch_limit": 20
         }
       ]
+    },
+    "twitter": {
+      "enabled": true,
+      "users": ["karpathy", "ylecun", "swyx", "lennysan", "GoogleLabs"],
+      "fetch_limit": 10,
+      "fetch_reply_text": false,
+      "max_replies_per_tweet": 3,
+      "max_tweets_to_expand": 10,
+      "reply_min_likes": 5
     }
   },
   "filtering": {
