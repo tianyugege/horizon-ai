@@ -65,22 +65,10 @@
         "category": "ai-tools"
       },
       {
-        "name": "Ben's Bites",
-        "url": "https://bensbites.beehiiv.com/feed",
-        "enabled": true,
-        "category": "ai-news"
-      },
-      {
         "name": "News by smol.ai",
         "url": "https://news.smol.ai/rss.xml",
         "enabled": true,
         "category": "ai-news"
-      },
-      {
-        "name": "Every",
-        "url": "https://every.to/feed",
-        "enabled": true,
-        "category": "ai-essays"
       },
       {
         "name": "Google Blog",
