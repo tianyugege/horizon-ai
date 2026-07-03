@@ -1,110 +1,338 @@
 # Horizon 每日速递 - 2026-07-03
 
-> 从 43 条内容中筛选出 14 条重要资讯。
+> 从 44 条内容中筛选出 16 条重要资讯。
 
 ---
 
-1. [Podman v6.0.0 发布，支持从 BoltDB 自动迁移到 SQLite](#item-1) ⭐️ 9.0/10
-2. [美国禁止人口普查数据中的差分隐私技术](#item-2) ⭐️ 9.0/10
-3. [ECTC 2026 综述：EMIB-T、定制 HBM、HBM4、冷却与光子互连](#item-3) ⭐️ 9.0/10
-4. [Anthropic 指控阿里巴巴对 Claude 发动大规模蒸馏攻击](#item-4) ⭐️ 9.0/10
-5. [弗吉尼亚州禁止出售精确地理位置数据](#item-5) ⭐️ 8.0/10
-6. [crustc：将整个 rustc 编译器翻译为 C 语言](#item-6) ⭐️ 8.0/10
-7. [Linux 6.9 回归导致挂起时 LUKS 加密密钥未从内存中清除](#item-7) ⭐️ 8.0/10
-8. [Immich 3.0：自托管照片平台重大更新](#item-8) ⭐️ 8.0/10
-9. [Postgres 事务：分布式系统的超能力](#item-9) ⭐️ 8.0/10
-10. [Meta 计算策略预示新云模式转变](#item-10) ⭐️ 8.0/10
-11. [Hierarchos：2.32 亿参数循环记忆增强模型初现潜力](#item-11) ⭐️ 8.0/10
-12. [证监会批准宇树科技科创板 IPO 注册](#item-12) ⭐️ 8.0/10
-13. [花旗禁用 GPT-5.5，多家企业因 AI 成本飙升限制使用](#item-13) ⭐️ 8.0/10
-14. [华为发布 Atlas 350 加速卡，搭载昇腾 950PR，性能达 H20 的 2.87 倍](#item-14) ⭐️ 8.0/10
+1. [美国禁止人口普查数据中的差分隐私](#item-1) ⭐️ 9.0/10
+2. [ECTC 2026 综述：EMIB-T、HBM4、微流体冷却与光子互连](#item-2) ⭐️ 9.0/10
+3. [弗吉尼亚州禁止出售精确地理位置数据](#item-3) ⭐️ 8.0/10
+4. [Crustc：将整个 Rust 编译器翻译为 C 语言](#item-4) ⭐️ 8.0/10
+5. [Linux 6.9 中 LUKS 挂起未能从内存中擦除加密密钥](#item-5) ⭐️ 8.0/10
+6. [Podman v6.0.0 发布：自动迁移至 SQLite 并增强 Quadlet 支持](#item-6) ⭐️ 8.0/10
+7. [Immich 3.0：自托管照片平台重大更新](#item-7) ⭐️ 8.0/10
+8. [Postgres 事务：分布式系统的超能力](#item-8) ⭐️ 8.0/10
+9. [理解才能参与：用 AI 对抗认知债务](#item-9) ⭐️ 8.0/10
+10. [Meta 的 Neocloud 战略：推荐系统规模扩大 10 倍](#item-10) ⭐️ 8.0/10
+11. [证监会批准宇树科技科创板 IPO 注册](#item-11) ⭐️ 8.0/10
+12. [花旗禁用 GPT-5.5，AI 成本飙升迫使企业限制使用](#item-12) ⭐️ 8.0/10
+13. [PS3 商店 2027 年关闭，档案员紧急抢救游戏数据](#item-13) ⭐️ 8.0/10
+14. [Anthropic 指控阿里巴巴对 Claude 发动大规模 AI 蒸馏攻击](#item-14) ⭐️ 8.0/10
+15. [Claude Fable 5 重新上线后安全误判频发，遭开发者吐槽](#item-15) ⭐️ 8.0/10
+16. [华为发布 Atlas 350 加速卡，搭载昇腾 950PR，算力达 H20 的 2.87 倍](#item-16) ⭐️ 8.0/10
 
 ---
 
 <a id="item-1"></a>
-## [Podman v6.0.0 发布，支持从 BoltDB 自动迁移到 SQLite](https://blog.podman.io/2026/07/introducing-podman-v6-0-0/) ⭐️ 9.0/10
+## [美国禁止人口普查数据中的差分隐私](https://scottaaronson.blog/?p=9902) ⭐️ 9.0/10
 
-Podman v6.0.0 已发布，新增了从 BoltDB 到 SQLite 的自动数据库迁移功能，改进了 Quadlet 支持，并增强了与 Docker 的兼容性。升级过程现在可以无缝迁移容器数据，无需手动重置。 此版本标志着 Podman 作为 Docker 替代方案的一个重要里程碑，使用户迁移更加容易，并通过 SQLite 提高了长期数据库可靠性。它巩固了 Podman 在容器生态系统中的地位，尤其适合寻求无守护进程、与 systemd 集成的 DevOps 和家庭实验室用户。 从 BoltDB 到 SQLite 的自动迁移在升级到 v6.0.0 时触发，消除了之前需要执行 `podman system reset`（会删除所有数据）的步骤。Quadlet 支持得到改进，新增的命令如 `podman quadlet list`（在 v5.6.0 中添加）和 `--migrate-db` 标志（在 v5.8.0 中添加）现已包含在稳定版本中。
+2026 年 6 月 4 日，美国商务部长发布了 DAO 216-26 号指令，禁止人口普查局发布的所有统计产品中使用差分隐私和噪声注入技术，将披露避免限制为仅使用粗化方法。 该指令移除了人口普查数据的主要数学隐私保护，可能导致官方统计中个人身份被重新识别，并破坏数十年的隐私研究成果。它不仅影响 2030 年人口普查，还影响研究人员、企业和政策制定者依赖的持续经济与人口数据产品。 该指令明确禁止“噪声注入”——即向数据集中添加随机值——并规定仅可使用“粗化”（如四舍五入或数据聚合）进行披露避免。禁令涵盖所有统计产品，包括人口普查局及商务部下属其他机构的产品。
 
-hackernews · soheilpro · 7月2日 14:23 · [社区讨论](https://news.ycombinator.com/item?id=48762098)
+hackernews · flowercalled · 7月3日 00:01 · [社区讨论](https://news.ycombinator.com/item?id=48768992)
 
-**背景**: Podman 是一个无守护进程的容器引擎，提供与 Docker 兼容的命令行界面，允许用户在没有中央守护进程的情况下运行容器。BoltDB 是 Podman 之前使用的键值存储数据库，而 SQLite 是一种更广泛支持的关系型数据库，提供更好的并发性和可靠性。Quadlet 是一个 systemd 集成功能，允许用户使用声明式单元文件定义容器、卷和网络，systemd 会自动将其转换为服务单元。
+**背景**: 差分隐私是一种数学框架，通过添加校准噪声保证无法区分个体数据是否在数据集中。人口普查局至少自 2003 年起就在季度劳动力指标等产品中使用噪声注入，并在 2020 年人口普查数据中引发争议地应用了该技术。该指令似乎源于对这些技术的政治反对，批评者认为它们降低了选区划分和资源分配所需的数据准确性。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://db-engines.com/en/system/BoltDB;SQLite">System Properties Comparison BoltDB vs. SQLite</a></li>
-<li><a href="https://github.com/containers/podman/issues/27628">Add support to migrate data in boltdb to sqlite · Issue #27628 · containers/podman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Differential_privacy">Differential privacy - Wikipedia</a></li>
+<li><a href="https://www.promptzone.com/aisha_rahman_ea07d8ac/census-bureau-ends-noise-infusion-for-official-stats-11a2">Census Bureau Ends Noise Infusion for Official Stats - PromptZone</a></li>
+<li><a href="https://www.wwno.org/npr-news/2026-06-12/a-trump-push-to-cut-statistical-noise-could-mean-less-data-from-the-census-bureau">A Trump push to cut ' statistical noise ' could mean less data... | WWNO</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 评论者对指令背后的政治动机表示困惑和担忧，有人猜测其目的是为了政治利益而降低数据准确性。其他人质疑粗化作为替代方案的技术充分性，指出其在防止重新识别方面存在已知弱点。少数评论者提供了实际行动建议，如联系立法者。
+
+**标签**: `#privacy`, `#differential privacy`, `#US policy`, `#census`, `#data security`
+
+---
+
+<a id="item-2"></a>
+## [ECTC 2026 综述：EMIB-T、HBM4、微流体冷却与光子互连](https://newsletter.semianalysis.com/p/ectc2026) ⭐️ 9.0/10
+
+在 ECTC 2026 上，英特尔、台积电、SK 海力士、三星、美光、Marvell、Lightmatter 和微软展示了半导体封装领域的前沿进展，包括英特尔用于 HBM4 的 EMIB-T 技术、微流体冷却方案以及光子互连。 这些进展解决了 AI 和高性能计算硬件中的关键瓶颈，如内存带宽、热管理和芯片间通信，直接影响下一代系统的性能和可扩展性。 英特尔的 EMIB-T 支持远低于 45 微米的间距，35 微米间距即将实现，25 微米间距正在开发中，从而为 HBM4 和 UCIe 实现更紧密的集成。与电子器件协同设计的微流体冷却可大幅提升热效率，而光子互连利用光实现亚纳秒级芯片通信。
+
+rss · Semianalysis · 7月2日 17:25
+
+**背景**: 像 EMIB（嵌入式多芯片互连桥）这样的先进封装技术使用小型硅桥连接芯片，无需大型中介层，从而降低成本并提升性能。HBM4 是下一代高带宽内存标准，需要更精细的互连间距。微流体冷却通过封装内的微通道循环液体冷却剂来管理日益增长的功率密度，而光子互连用光取代电信号，实现更快、更低功耗的数据传输。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://www.tomshardware.com/pc-components/cpus/intel-details-new-advanced-packaging-breakthroughs-emib-t-paves-the-way-for-hbm4-and-increased-ucie-bandwidth">Intel details new advanced packaging breakthroughs — EMIB - T paves...</a></li>
+<li><a href="https://www.nature.com/articles/s44172-026-00620-9">Co-packaged electronics with microfluidics for direct-to-package cooling | Communications Engineering</a></li>
+<li><a href="https://lightmatter.co/knowledge-hub/how-do-photonic-interconnects-work/">How Do Photonic Interconnects Work?</a></li>
+
+</ul>
+</details>
+
+**标签**: `#semiconductor packaging`, `#HBM4`, `#photonic interconnects`, `#microfluidic cooling`, `#ECTC 2026`
+
+---
+
+<a id="item-3"></a>
+## [弗吉尼亚州禁止出售精确地理位置数据](https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data) ⭐️ 8.0/10
+
+弗吉尼亚州通过了一项法律，禁止出售能够将个人定位在 1750 英尺范围内的精确地理位置数据，该法律已于 7 月 1 日生效。该法律将此类数据归类为《弗吉尼亚消费者数据保护法》下的“个人数据”。 这是美国州级隐私监管的重要一步，因为地理位置数据高度敏感且极易被去匿名化。该法律可能为其他州树立先例，并迫使企业重新思考如何收集和出售位置数据。 该禁令仅适用于能够将个人定位在 1750 英尺范围内的精确数据，这意味着公司仍可以出售“模糊”或精度较低的位置数据。对于州外公司的执法仍存在挑战，且该法律未明确解决匿名化数据被重新识别的风险。
+
+hackernews · toomuchtodo · 7月2日 21:03 · [社区讨论](https://news.ycombinator.com/item?id=48767347)
+
+**背景**: 地理位置数据追踪设备的物理位置，通常由应用程序和移动服务收集。即使去除了姓名等直接标识符，这类数据也常常可以通过与公共记录或已知位置（如家庭地址）关联而被重新识别。《弗吉尼亚消费者数据保护法》是美国多个州级隐私法律之一，类似于加利福尼亚州的 CCPA。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Data_re-identification">Data re - identification - Wikipedia</a></li>
+<li><a href="https://www.k2view.com/blog/re-identification-of-anonymized-data">Re - identification of anonymized data : What you need to know</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 评论者指出一个关键漏洞：1750 英尺的精度门槛允许公司出售精度较低的位置数据，这些数据可能仍可用于追踪。其他人则对州外公司的执法问题表示担忧，并指出大型科技公司常声称匿名化数据不受限制，尽管重新识别非常容易。
+
+**标签**: `#privacy`, `#geolocation`, `#regulation`, `#data rights`, `#Virginia`
+
+---
+
+<a id="item-4"></a>
+## [Crustc：将整个 Rust 编译器翻译为 C 语言](https://github.com/FractalFir/crustc) ⭐️ 8.0/10
+
+一位开发者耗时三年创建了 crustc 项目，将整个 rustc 编译器从 Rust 语言翻译为 C 语言。这使得 Rust 编译器可以在缺乏 LLVM 或 GCC 支持的硬件上构建。 该项目解决了根本性的自举问题，使 Rust 能够在没有 LLVM 或 GCC 的旧式或小众硬件上运行。它还通过多样化双重编译（DDC）提供了一种验证官方 Rust 编译器是否存在后门的方法。 Crustc 是已知的第 14 次将 Rust 编译为 C 的尝试，它通过将 rustc 与 C 编译器封装，实时将 Rust 代码翻译为 C。该项目旨在消除自举过程中对 LLVM 或 GCC 的依赖，但可能存在性能和兼容性方面的权衡。
+
+hackernews · Philpax · 7月2日 22:57 · [社区讨论](https://news.ycombinator.com/item?id=48768464)
+
+**背景**: 编译器的自举意味着使用其早期版本或其他编译器从源代码构建它。Rust 的编译器 rustc 是用 Rust 编写的，通常需要现有的 Rust 编译器或 LLVM 来构建，这为新平台带来了先有鸡还是先有蛋的问题。将 Rust 翻译为 C 允许利用任何 C 编译器（如 GCC）来自举 Rust，从而绕过了对 LLVM 的需求。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://github.com/FractalFir/crustc">GitHub - FractalFir/ crustc : Entirety of `rustc`, translated to C . · Gi...</a></li>
+<li><a href="https://dev.to/tamizuddin/decoding-crustc-translating-the-rust-compiler-to-c-and-its-impact-on-systems-programming-3djc">Decoding ` crustc `: Translating the Rust Compiler ... - DEV Community</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bootstrapping_(compilers)">Bootstrapping (compilers) - Wikipedia</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 社区赞扬了该项目的奉献精神和原创性，一位评论者指出这是第 14 次尝试并表示尊重。其他人讨论了使用多样化双重编译（DDC）来测试后门，并将 crustc 与 LLVM 的 C 后端进行比较，指出后者历史上不稳定。
+
+**标签**: `#rust`, `#compilers`, `#bootstrapping`, `#transpilation`, `#systems-programming`
+
+---
+
+<a id="item-5"></a>
+## [Linux 6.9 中 LUKS 挂起未能从内存中擦除加密密钥](https://mathstodon.xyz/@iblech/116769502749142438) ⭐️ 8.0/10
+
+Linux 内核 6.9 中的一个回归导致 `cryptsetup luksSuspend` 命令在系统挂起或休眠期间停止从内核内存中擦除磁盘加密主密钥。这意味着主密钥仍留在内存中，如果攻击者获得对挂起系统的物理访问权限，可能会暴露加密数据。 这一回归破坏了 LUKS 磁盘加密的一个关键安全特性，该特性广泛用于保护 Linux 系统上的静态数据。如果被利用，攻击者可以通过物理访问挂起的笔记本电脑或服务器，恢复主密钥并在无需用户密码的情况下解密整个磁盘。 该漏洞是在 Mastodon 社交网络上被发现并报告的，社区正在争论这是 Linux 6.9 特有的内核回归还是 Debian 特有的问题，因为 `cryptsetup luksSuspend` 在上游并未正式支持，而是由 Debian 维护的扩展。该问题影响挂起到 RAM（睡眠）和挂起到磁盘（休眠）两种场景。
+
+hackernews · IngoBlechschmid · 7月2日 15:25 · [社区讨论](https://news.ycombinator.com/item?id=48763035)
+
+**背景**: LUKS（Linux 统一密钥设置）是 Linux 上磁盘加密的标准。当通过 `luksSuspend` 挂起 LUKS 加密卷时，内核应从内存中擦除主加密密钥，以防止其在睡眠或休眠期间暴露。主密钥用于解密磁盘上的实际数据；如果它留在内存中，具有物理访问权限的攻击者可以转储 RAM 并恢复密钥。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://github.com/guns/go-luks-suspend">GitHub - guns/go-luks-suspend: Lock encrypted LUKS volumes on suspend in Arch Linux · GitHub</a></li>
+<li><a href="https://github.com/vianney/arch-luks-suspend">GitHub - vianney/arch-luks-suspend: Lock encrypted root volume on suspend in Arch Linux · GitHub</a></li>
+<li><a href="https://www.reddit.com/r/archlinux/comments/hpd4hh/suspend_with_luks/">r/archlinux on Reddit: Suspend with LUKS</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 社区评论显示出担忧和争论的混合。一些用户认为标题是标题党，因为 `cryptsetup luksSuspend` 是 Debian 特有的扩展，而不是上游内核特性，因此回归可能只影响 Debian。其他人指出，像这样的安全漏洞很容易被忽略，因为一切看起来仍然正常工作，他们赞赏已经添加了 NixOS 测试来在未来捕获此类回归。
+
+**标签**: `#Linux kernel`, `#security`, `#LUKS`, `#disk encryption`, `#regression`
+
+---
+
+<a id="item-6"></a>
+## [Podman v6.0.0 发布：自动迁移至 SQLite 并增强 Quadlet 支持](https://blog.podman.io/2026/07/introducing-podman-v6-0-0/) ⭐️ 8.0/10
+
+Podman v6.0.0 引入了从 BoltDB 到 SQLite 的自动迁移功能，并改进了 Quadlet 支持，使容器可以作为 systemd 服务运行。该版本还保持了强大的 Docker CLI 兼容性，用户只需极少的更改即可从 Docker 切换过来。 此版本标志着 Podman 作为 Docker 替代方案的一个重要里程碑，通过切换到 SQLite 解决了长期存在的数据库性能和可靠性问题。自动迁移和增强的 Quadlet 支持简化了 DevOps 团队和家庭实验室用户的容器管理，降低了运维负担。 从 BoltDB 到 SQLite 的自动迁移在系统重启或运行 'podman system migrate --migrate-db'（该标志在 v5.8.0 中添加）时触发。Quadlet 支持现在包括 'podman quadlet list'（在 v5.6.0 中添加），用于列出 quadlet 及其容器，并且 Quadlet 生成的 systemd 服务文件对用户隐藏了复杂性。
+
+hackernews · soheilpro · 7月2日 14:23 · [社区讨论](https://news.ycombinator.com/item?id=48762098)
+
+**背景**: Podman 是一个无守护进程的容器引擎，默认提供无根容器，是 Docker 的热门替代方案。它一直在将其内部状态存储从 BoltDB 迁移到 SQLite，以提高性能和可靠性。Quadlet 是一项功能，允许用户用简单的 unit 文件定义容器，然后 Podman 将其转换为 systemd 服务进行自动管理。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://blog.hofstede.it/podman-58-quadlet-multi-file-install-automatic-sqlite-migration-and-the-road-to-60/">Podman 5.8: Quadlet Multi-File Install, Automatic SQLite ... | Larvitz Blog</a></li>
+<li><a href="https://sanj.dev/post/docker-vs-podman-comparison/">Docker vs Podman : Rootless Networking, Benchmarks... | Sanj</a></li>
 <li><a href="https://www.redhat.com/en/blog/quadlet-podman">Make systemd better for Podman with Quadlet</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 社区成员报告了从 Docker 到 Podman 的无缝迁移，一位用户指出切换过程就像安装 Podman 并指向现有的 docker-compose.yml 文件一样简单。然而，一些用户对微小的 Docker 不兼容性表示担忧，这些不兼容性可能在混合环境中引发问题；其他用户则对新的 BoltDB 到 SQLite 迁移工具表示赞赏。
+**社区讨论**: 社区成员报告了从 Docker 到 Podman 的无缝迁移，一位用户指出，切换就像安装 Podman 并指向现有的 docker-compose.yml 文件一样简单。然而，一些用户对 Docker 兼容性的细微差异表示担忧，这些差异可能会给期望严格 Docker 行为的项目带来问题。
 
-**标签**: `#Podman`, `#containers`, `#Docker`, `#release`, `#DevOps`
+**标签**: `#Podman`, `#containers`, `#DevOps`, `#Docker-alternative`, `#release`
 
 ---
 
-<a id="item-2"></a>
-## [美国禁止人口普查数据中的差分隐私技术](https://scottaaronson.blog/?p=9902) ⭐️ 9.0/10
+<a id="item-7"></a>
+## [Immich 3.0：自托管照片平台重大更新](https://github.com/immich-app/immich/discussions/29439) ⭐️ 8.0/10
 
-2026 年 6 月 4 日，美国商务部长发布了 DAO 216-26 号指令，禁止在人口普查局和经济分析局的所有数据发布中使用差分隐私和噪声注入技术，将披露避免限制为仅使用粗化方法。 该指令从根本上改变了美国联邦统计数据的隐私-准确性权衡，可能使个人回复面临重识别攻击的风险，同时也会提高选区重划和政策决策的数据准确性。它在统计学家、隐私倡导者和政策制定者之间引发了关于统计披露控制未来的紧急辩论。 该指令明确禁止“噪声注入”（即向数据中添加随机值），这是差分隐私的核心机制，并强制要求仅可使用“粗化”（如四舍五入、分箱或抑制小单元格）进行披露避免。这逆转了人口普查局数十年的做法，并与传统基金会等团体的批评一致，他们认为噪声注入扭曲了用于选区重划的数据。
+Immich 3.0 是开源自托管照片和视频管理解决方案的重大版本，已在 GitHub 上发布，引发了社区对其功能和部署的广泛讨论。 此次发布标志着广泛使用的 Google Photos 替代方案的一个重要里程碑，巩固了自托管生态系统的发展，并为用户提供了对个人媒体的更多控制权。 此次更新包括社区贡献者的错误修复，例如一名学生合并的拉取请求，并解决了移动应用直接上传到相册等功能，同时关于端到端加密的讨论仍在继续。
 
-hackernews · flowercalled · 7月3日 00:01 · [社区讨论](https://news.ycombinator.com/item?id=48768992)
+hackernews · hashier · 7月2日 14:13 · [社区讨论](https://news.ycombinator.com/item?id=48761944)
 
-**背景**: 差分隐私是一种数学框架，通过向数据中添加校准噪声来保护个人隐私，同时保持总体统计准确性。美国人口普查局首次将其应用于 2020 年人口普查数据发布，但批评者认为它降低了小区域选区重划的数据质量。该指令代表了特朗普政府下的重大政策转变，优先考虑数据准确性而非正式的隐私保证。
+**背景**: Immich 是一个高性能的自托管照片和视频管理解决方案，与 Google Photos 等云服务竞争。它提供面部识别、相册共享和地图视图等功能，通常通过 Docker 部署在个人服务器或家庭实验室上。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.census.gov/programs-surveys/decennial-census/decade/2020/planning-management/process/disclosure-avoidance/differential-privacy.html">Understanding Differential Privacy - Census.gov</a></li>
-<li><a href="https://www.npr.org/2026/06/12/nx-s1-5855734/census-bureau-data-differential-privacy">Trump privacy restrictions may reduce Census Bureau data : NPR</a></li>
-<li><a href="https://www.ncsl.org/technology-and-communication/differential-privacy-census-data-and-redistricting">Differential Privacy for Census Data Explained</a></li>
+<li><a href="https://github.com/immich-app/immich">GitHub - immich -app/ immich : High performance self - hosted photo ...</a></li>
+<li><a href="https://xtom.com/blog/is-immich-the-best-self-hosted-google-photos-alternative/">Is Immich the Best Self - Hosted Google Photos Alternative? | xTom</a></li>
+<li><a href="https://selfhostedguides.com/immich-photo-management/">Immich : Self - Hosted Google Photos Alternative — Selfhosted Guides</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者对指令背后的政治动机表示困惑和担忧，多人询问为什么传统基金会针对这些统计技术。其他人指出，文章的号召行动缺少直接联系立法者的链接，一些人质疑粗化方法在实践中是否真的未能防止信息泄露。
+**社区讨论**: 社区对一位教授看到学生的错误修复被合并表示自豪，分享了实用的部署建议（例如使用 Hetzner 全盘加密和 Tailscale），并讨论了端到端加密的必要性，一些人认为对于本地设置来说这并非必要。
 
-**标签**: `#privacy`, `#differential privacy`, `#census`, `#data policy`, `#statistics`
+**标签**: `#self-hosting`, `#open-source`, `#photo management`, `#immich`, `#privacy`
 
 ---
 
-<a id="item-3"></a>
-## [ECTC 2026 综述：EMIB-T、定制 HBM、HBM4、冷却与光子互连](https://newsletter.semianalysis.com/p/ectc2026) ⭐️ 9.0/10
+<a id="item-8"></a>
+## [Postgres 事务：分布式系统的超能力](https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data) ⭐️ 8.0/10
 
-在 ECTC 2026 上，英特尔、台积电、SK 海力士、三星、美光、Marvell、Lightmatter 和微软展示了 EMIB-T 封装、定制 HBM、HBM4 集成、微流体冷却和光子互连的路线图与挑战。这些公告详细介绍了面向 AI 和高性能计算的下一代半导体封装与热管理技术。 这些进展对于克服 AI/ML 硬件中的带宽、功耗和热瓶颈至关重要，将直接影响未来数据中心和边缘设备的性能。全行业的合作标志着向异构集成和先进冷却解决方案的范式转变。 EMIB-T 技术支持高速 HBM4 内存和 UCIe 接口，英特尔报告其良率达 90%，并计划到 2028 年扩展到 12 倍光罩尺寸。微流体冷却通过嵌入芯片内部的微通道循环冷却液，而光子互连则利用硅光子技术替代数据中心中的电互连。
+文章主张将工作流状态与 Postgres 数据放在同一位置，利用事务原子性来简化分布式协调模式（如 outbox 模式）。 这种方法通过消除双重写入问题和外部消息队列来降低架构复杂性，使团队更容易构建可靠的分布式工作流。 每个工作流步骤成为一个数据库提交单元，将进度与事务边界对齐，这会使数据库与工作流逻辑紧密耦合。
 
-rss · Semianalysis · 7月2日 17:25
+hackernews · KraftyOne · 7月2日 18:38 · [社区讨论](https://news.ycombinator.com/item?id=48765639)
 
-**背景**: 半导体封装将多个芯片连接成一个系统，EMIB（英特尔）和 CoWoS（台积电）等技术实现了高带宽内存集成。HBM4 是下一代高带宽内存标准，而微流体冷却解决了先进芯片的极高热密度问题。光子互连有望为数据密集型工作负载提供比电互连更低的延迟和更高的带宽。
+**背景**: 在分布式系统中，outbox 模式通过先将事件写入数据库表，再可靠地发布它们来解决双重写入问题。将工作流状态与数据放在同一位置，利用 Postgres 的 ACID 事务来实现原子性，无需外部协调。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://abit.ee/en/hard/intel-introduces-emib-t-revolutionary-multi-die-packaging-technology-with-hbm4-support">Intel Introduces EMIB - T — Revolutionary Multi-Die Packaging...</a></li>
-<li><a href="https://medium.com/no-time/microfluidic-cooling-the-silent-revolution-in-high-performance-semiconductor-c713d1089630">Microfluidic Cooling : The Silent Revolution In... | Medium</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Photonic_integrated_circuit">Photonic integrated circuit - Wikipedia</a></li>
+<li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html">Transactional outbox pattern - AWS Prescriptive Guidance</a></li>
+<li><a href="https://www.geeksforgeeks.org/system-design/outbox-pattern-for-reliable-messaging-system-design/">Outbox Pattern for Reliable Messaging - System Design - GeeksforGeeks</a></li>
+<li><a href="https://dzone.com/articles/outbox-pattern-reliable-messaging-distributed-systems">Outbox Pattern: Reliable Messaging in Distributed Systems</a></li>
 
 </ul>
 </details>
 
-**标签**: `#semiconductor packaging`, `#HBM4`, `#microfluidic cooling`, `#photonic interconnects`, `#AI hardware`
+**社区讨论**: 评论者讨论了其中的权衡：一些人赞扬了原子性的好处，而另一些人质疑这到底算不算分布式系统，还是仅仅将中央数据库用作互斥锁。也有人提出了紧密耦合的担忧，不过一些评论指出在实践中很少需要分离。
+
+**标签**: `#Postgres`, `#distributed systems`, `#transactions`, `#workflow`, `#database`
 
 ---
 
-<a id="item-4"></a>
-## [Anthropic 指控阿里巴巴对 Claude 发动大规模蒸馏攻击](https://t.me/zaihuapd/42327) ⭐️ 9.0/10
+<a id="item-9"></a>
+## [理解才能参与：用 AI 对抗认知债务](https://simonwillison.net/2026/Jul/2/understand-to-participate/#atom-everything) ⭐️ 8.0/10
 
-Anthropic 致信美国参议院银行委员会，指控阿里巴巴及其 Qwen 实验室发动了迄今已知最大规模的蒸馏攻击，通过近 2.5 万个欺诈账户，在 2026 年 4 月 22 日至 6 月 5 日期间与 Claude 进行了超过 2880 万次交互。 这一事件直接侵犯了知识产权，削弱了构建先进 AI 模型所需的巨额研发投入，并可能加剧国际 AI 竞争中的紧张局势，进而导致对 AI 模型访问和跨境数据流动的更严格监管。 该攻击使用了模型蒸馏技术，即用较弱的模型学习较强模型的输出，以极低的开发成本复制其能力。Anthropic 表示，这是该公司迄今检测到的最大规模蒸馏攻击，涉及 2.5 万个欺诈账户和 2880 万次交互。
+Geoffrey Litt 在 AI 工程师世界博览会上提出，开发者必须保持对代码的深入理解才能与编码智能体有效协作，避免认知债务。他将此概括为“理解才能参与”，强调理解能让人成为主动的创意参与者，而非被动监督者。 随着 AI 编码智能体生成越来越庞大和复杂的变更，开发者的理解可能脱节并积累认知债务，这一洞见因此至关重要。它将讨论焦点从效率提升转向长期可维护性和开发者在 AI 辅助软件工程中的主动权。 Litt 的演讲于 2026 年在 AI 工程师世界博览会（AIE）上进行，Twitter 上已有其演讲的推文串版本。Simon Willison 在其博客上重点推荐了这场演讲，并指出全部 300 多场 AIE 演讲将在未来三周内陆续发布到 YouTube。
+
+rss · Simon Willison · 7月2日 17:07
+
+**背景**: 认知债务指的是对系统为何能工作、其脆弱之处、设计权衡以及变更信心等理解的缺失所积累的成本，它与技术债务（指混乱的代码）不同。随着 AI 编码智能体自动化更多开发任务，开发者可能在没有深入验证的情况下信任输出，从而导致认知债务，这会损害项目的长期健康以及开发者创造性参与的能力。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://mathiesen.dev/writing/cognitive-debt">Cognitive Debt | Jarle Mathiesen</a></li>
+<li><a href="https://queue.acm.org/detail.cfm?id=3807966">From Technical Debt to Cognitive and Intent Debt - ACM Queue</a></li>
+<li><a href="https://www.linkedin.com/posts/muhammadnomankhan_softwareengineering-generativeai-coding-activity-7443585277836554240-T1QU">Cognitive Debt : The Hidden Cost of AI-Driven Development | LinkedIn</a></li>
+
+</ul>
+</details>
+
+**标签**: `#AI-assisted coding`, `#cognitive debt`, `#software engineering`, `#developer tools`, `#LLM agents`
+
+---
+
+<a id="item-10"></a>
+## [Meta 的 Neocloud 战略：推荐系统规模扩大 10 倍](https://newsletter.semianalysis.com/p/meta-compute-everyone-wants-to-be) ⭐️ 8.0/10
+
+Meta 正在采用“neocloud”方法来构建其计算基础设施，目标是将其推荐系统规模扩大 10 倍。这一战略被比作 SpaceX 和 Bedrock，同时 SemiAnalysis 正准备发布 GPU 云服务的 ClusterMAX 排名。 这一转变标志着大型科技公司构建和运营 AI 基础设施方式的重大变革，可能减少对传统集中式云提供商的依赖。如果成功，它可能为高性价比、高性能的 AI 计算树立新标准，影响整个云计算和 AI 行业。 Neocloud 模型专注于以 GPU 优先的基础设施，聚合分布式计算资源而非依赖集中式数据中心。Meta 的推荐系统目前在 NVIDIA B200 GPU 上仅达到 3-15%的模型 FLOPs 利用率，凸显了新方法旨在解决的显著低效问题。
+
+rss · Semianalysis · 7月2日 22:18
+
+**背景**: Neocloud 是一种主要围绕高性能计算（尤其是 GPU 密集型 AI 工作负载）构建的云运营商，通常采用去中心化方式聚合资源。Meta 的推荐系统对其广告业务至关重要，利用机器学习在 Instagram 等平台上个性化内容。ClusterMAX 是 SemiAnalysis 开发的 GPU 云评级系统，用于评估提供商在性能、网络等方面的表现。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://www.computetape.com/learn/what-is-a-neocloud/">What Is a Neocloud ? AI GPU Cloud Operators | ComputeTape</a></li>
+<li><a href="https://engineering.fb.com/2023/08/09/ml-applications/scaling-instagram-explore-recommendations-system/">Scaling the Instagram Explore recommendations system</a></li>
+<li><a href="https://www.clustermax.ai/">GPU Cloud ClusterMAX ™ Rating & Ranking System | SemiAnalysis</a></li>
+
+</ul>
+</details>
+
+**标签**: `#Meta`, `#cloud computing`, `#AI infrastructure`, `#recommendation systems`, `#compute`
+
+---
+
+<a id="item-11"></a>
+## [证监会批准宇树科技科创板 IPO 注册](https://www.csrc.gov.cn/csrc/c105906/c7642867/content.shtml) ⭐️ 8.0/10
+
+2026 年 7 月 1 日，中国证监会正式批准宇树科技股份有限公司在科创板首次公开发行股票的注册申请。这一批复允许这家仿生机器人制造商推进其上市进程。 此次 IPO 获批标志着中国机器人行业的一个重要里程碑，表明监管机构对先进机器人公司给予了强有力的认可和市场信心。宇树科技上市可能吸引大量投资，并加速人形和四足机器人技术的发展。 证监会批复要求宇树科技严格按照报送上交所的招股说明书和发行承销方案实施，注册至发行结束期间如发生重大事项须及时报告。宇树科技成立于 2016 年，最初专注于四足机器人，2024 年进入人形机器人领域，其第二代产品售价约 16000 美元。
+
+telegram · zaihuapd · 7月2日 09:57
+
+**背景**: 科创板于 2019 年推出，是中国的纳斯达克式板块，旨在吸引科技创新企业并为其提供国内资本渠道。宇树科技总部位于杭州，以高性能四足机器人（机器狗）闻名，近期也涉足人形机器人领域。与波士顿动力等竞争对手相比，其产品以敏捷性和相对较低的成本获得了国际关注。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unitree_Robotics">Unitree Robotics</a></li>
+<li><a href="https://www.hawksford.com/insights-and-guides/china-business-guides/launch-of-star-market">Shanghai STAR Market : China ’s NASDAQ for Tech... | Hawksford</a></li>
+
+</ul>
+</details>
+
+**标签**: `#robotics`, `#IPO`, `#Unitree`, `#China`, `#STAR Market`
+
+---
+
+<a id="item-12"></a>
+## [花旗禁用 GPT-5.5，AI 成本飙升迫使企业限制使用](https://www.404media.co/companies-are-throttling-employees-ai-use-because-its-too-expensive/) ⭐️ 8.0/10
+
+花旗银行于 2026 年 6 月 24 日完全禁用 Claude Opus 4.6、4.7 和 GPT-5.5，理由是这些模型消耗的 AI 积分远超普通模型；同时 Atlassian 的 AI 月支出从 2025 年 8 月的 500 万美元飙升至 2026 年 5 月的逾 1500 万美元，公司因此终止无限使用并推出成本追踪面板。 这标志着企业 AI 采用出现重大逆转——曾经鼓励无限 AI 实验的公司，如今因按 token 计费模式下成本不可持续而限制使用，可能减缓 AI 在各行业的整合速度。 Adobe 也宣布不再续签无限使用 Claude 的合同（2026 年 6 月 30 日到期），而 Amazon 此前关闭了鼓励 AI 使用的内部排行榜，员工随后发现存在此前未知的 token 使用上限。
+
+telegram · zaihuapd · 7月2日 13:59
+
+**背景**: GPT-5.5 和 Claude Opus 等企业 AI 工具通常按 token（输入和输出）计费，这意味着成本直接随使用量增长。当企业广泛部署这些工具后，月度账单意外膨胀，迫使财务团队施加限制。GPT-5.5 由 OpenAI 于 2026 年 4 月 23 日发布，是一款强大但昂贵的模型，在 Terminal-Bench 2.0 上得分为 82.7%。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/GPT-5.5_Pro">GPT-5.5 Pro</a></li>
+<li><a href="https://blog.laozhang.ai/zh/posts/claude-opus-4-7-vs-claude-opus-4-6">Claude Opus 4 . 7 vs Claude Opus 4 . 6 ：2026... | LaoZhang AI Blog</a></li>
+
+</ul>
+</details>
+
+**标签**: `#AI`, `#enterprise`, `#cost-management`, `#industry-trends`, `#generative-ai`
+
+---
+
+<a id="item-13"></a>
+## [PS3 商店 2027 年关闭，档案员紧急抢救游戏数据](http://no-intro.org/) ⭐️ 8.0/10
+
+索尼宣布将于 2027 年 7 月永久关闭 PS3 和 PS Vita 的 PlayStation Store，数字档案管理员和 RPCS3 模拟器团队正紧急备份游戏数据。RPCS3 团队推荐使用 no-intro.org 数据库来协调保存工作，并追踪哪些游戏已被备份。 此次关闭可能导致从未推出实体版的数字独占游戏永久丢失，凸显了数字保存领域的重大缺口。这一事件揭示了全数字化游戏库的脆弱性，以及游戏行业建立系统化存档实践的紧迫需求。 no-intro.org 数据库记录了游戏的加密哈希值、文件大小和序列号等元数据，帮助社区确认哪些游戏已备份、哪些仍需抢救。RPCS3 警告，一旦商店关闭，任何没有实体版的游戏都可能变得完全无法访问。
+
+telegram · zaihuapd · 7月2日 15:04
+
+**背景**: 索尼的 PlayStation 3 和 PS Vita 数字商店已运营超过十年，托管了数千款游戏，其中包括许多从未发行光盘版的独占作品。数字保存依赖于社区努力，如流行的 PS3 模拟器 RPCS3 和提供标准化元数据的 no-intro.org 数据库。此次关闭延续了行业关停老旧数字商店的趋势，引发了对已购数字内容长期可访问性的担忧。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://www.tomshardware.com/video-games/playstation/digital-archivists-rush-to-save-ps3-game-data-before-sony-shuts-down-the-store-forever-in-2027-rpcs3-emulator-urges-users-to-preserve-all-content">Digital archivists rush to save PS3 game data before... | Tom's Hardware</a></li>
+<li><a href="https://no-intro.org/">No - Intro . org</a></li>
+
+</ul>
+</details>
+
+**标签**: `#digital preservation`, `#gaming`, `#emulation`, `#PS3`, `#archival`
+
+---
+
+<a id="item-14"></a>
+## [Anthropic 指控阿里巴巴对 Claude 发动大规模 AI 蒸馏攻击](https://t.me/zaihuapd/42327) ⭐️ 8.0/10
+
+Anthropic 指控阿里巴巴及其 Qwen AI 实验室发动了迄今已知最大规模的蒸馏攻击，在 2026 年 4 月 22 日至 6 月 5 日期间，利用约 2.5 万个欺诈账户与 Claude 进行了超过 2880 万次交互，以提取其能力。 这一事件凸显了中美科技巨头之间在 AI 知识产权盗窃方面日益紧张的局势，引发了关于模型安全、API 滥用以及 AI 竞争地缘政治维度的关键问题。 此次攻击针对 Anthropic 的 Claude 模型，通过大规模、重复性的交互进行，这是蒸馏攻击的典型特征——即较弱模型未经授权通过学习较强模型的输出来复制其能力。
 
 telegram · zaihuapd · 7月3日 06:21
 
-**背景**: 模型蒸馏是一种攻击技术：攻击者向目标大语言模型的 API 发送大量多样化查询，收集响应数据，然后用这些数据微调开源模型，从而有效复制原始模型的能力。这种做法被视为严重的安全威胁，因为它侵犯了 AI 公司的知识产权和研发投入。近年来，包括 Anthropic、Google 和 OpenAI 在内的多家美国 AI 公司都报告过来自中国 AI 实验室的蒸馏攻击。
+**背景**: 模型蒸馏是一种通过在更大、更强模型的输出上训练较小模型来创建高效模型的技术。当未经许可在商业 AI 服务上进行时，它就变成了蒸馏攻击，实质上窃取了模型的能力。此案因其前所未有的规模以及对一家中国大型企业的直接指控而引人注目。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks">Detecting and preventing distillation attacks \ Anthropic</a></li>
-<li><a href="https://www.mindstudio.ai/blog/ai-model-distillation-attacks-explained">AI Model Distillation Attacks: What They Are and Why They Matter | MindStudio</a></li>
-<li><a href="https://medium.com/@tahirbalarabe2/understanding-llm-distillation-attacks-929306ca38cd">Understanding LLM Distillation Attacks | by Tahir | Medium</a></li>
+<li><a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks?ref=cognitiverevolution.ai">Detecting and preventing distillation attacks \ Anthropic</a></li>
+<li><a href="https://www.wionews.com/trending/ai-cannibalism-anthropic-accuses-chinese-tech-giant-alibaba-of-29-million-adversarial-distillation-attacks-what-is-it-1782468580806">‘ AI Cannibalism’: Anthropic accuses Chinese tech giant Alibaba of 29...</a></li>
+<li><a href="https://www.digitalapplied.com/blog/anthropic-alibaba-distillation-campaign-2026-ai-ip-war">Anthropic Accuses Alibaba of Record Model Distillation</a></li>
 
 </ul>
 </details>
@@ -113,231 +341,49 @@ telegram · zaihuapd · 7月3日 06:21
 
 ---
 
-<a id="item-5"></a>
-## [弗吉尼亚州禁止出售精确地理位置数据](https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data) ⭐️ 8.0/10
+<a id="item-15"></a>
+## [Claude Fable 5 重新上线后安全误判频发，遭开发者吐槽](https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-relaunch-disappoints-users-with-nerfed-performance/) ⭐️ 8.0/10
 
-弗吉尼亚州颁布了一项法律，禁止出售精确地理位置数据，该法律于 2026 年 7 月 1 日生效，精度阈值为 1750 英尺。该法律旨在通过限制可识别个人身份的位置信息的商业交易来保护消费者隐私。 这项法律为美国州级隐私监管树立了重要先例，可能影响其他州采取类似措施。它直接冲击了依赖位置数据盈利的数据经纪人、广告商和科技公司，同时引发了跨州执法问题的讨论。 该禁令适用于能在 1750 英尺范围内识别个人的数据，但允许出售“模糊”或精度较低的地理位置数据。执法挑战包括管辖权问题，因为在其他州注册的公司仍可能收集并出售弗吉尼亚州居民的数据。
+在美国解除出口管制后，Anthropic 的 Claude Fable 5 在全球重新上线，但用户反映其安全机制阈值过高，在处理代码任务时频繁误判，订阅配额被削减，且 7 月 7 日后将转为按量付费模式。 这一退步削弱了开发者对 Anthropic 旗舰模型的信任，尤其是在 C/C++ 和 Rust 底层编码任务中，并凸显了先进 AI 系统中安全措施与实际可用性之间的广泛矛盾。 当处理包含“漏洞”或“hook”等关键词的代码时，模型会自动降级至 Opus 4.8；底层模型性能并未削弱，但安全防护裕度设置过大。Pro 和 Max 订阅用户在 7 月 7 日前仅能使用每周 50%的额度调用 Fable 5，之后将完全转为按量付费。
 
-hackernews · toomuchtodo · 7月2日 21:03 · [社区讨论](https://news.ycombinator.com/item?id=48767347)
+telegram · zaihuapd · 7月3日 07:20
 
-**背景**: 地理位置数据通常由应用程序和设备收集，然后出售给数据经纪人，这些经纪人将其汇总并转售用于广告、分析或监控。虽然公司声称通过去除姓名等直接标识符来匿名化这些数据，但研究表明，位置数据可以通过与其他公开信息结合而轻易被重新识别，这一过程称为去匿名化。弗吉尼亚州的法律加入了美国州级隐私法日益增长的趋势，例如加利福尼亚州和康涅狄格州的法律，旨在填补缺乏全面联邦隐私法所留下的空白。
+**背景**: Claude Fable 5 是 Anthropic 最强大的通用模型，专为长期、自主的代理任务设计。2026 年 6 月中旬，因美国商务部以越狱风险为由实施出口管制，该模型被下线。6 月 30 日管制解除后模型得以恢复，但 Anthropic 以算力紧张为由削减了订阅用户的访问权限。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Data_re-identification">Data re-identification - Wikipedia</a></li>
-<li><a href="https://iapp.org/news/a/the-paradox-of-publicly-available-data">The 'paradox' of publicly available data | IAPP</a></li>
-<li><a href="https://globalinvestigationsreview.com/guide/the-guide-cyber-investigations/fourth-edition/article/united-states-states-fill-the-gaps-in-the-absence-of-federal-privacy-law">The Guide to Cyber and Data Privacy Investigations - Fourth Edition - United States: states fill the gaps in the absence of a federal privacy law - Global Investigations Review</a></li>
+<li><a href="https://www.anthropic.com/news/activating-asl3-protections">Activating AI Safety Level 3 protections \ Anthropic</a></li>
+<li><a href="https://thehackernews.com/2026/07/anthropic-restores-claude-fable-5-after.html">Anthropic Restores Claude Fable 5 After U.S. Lifts Jailbreak-Linked...</a></li>
+<li><a href="https://support.claude.com/en/articles/8106465-our-approach-to-user-safety">Our Approach to User Safety | Claude Help Center</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 社区评论对该法律的有效性表示怀疑，用户指出公司可以通过出售“模糊”数据或在其他州注册来绕过禁令。关于地理位置数据的实际市场价值和去匿名化的容易程度也存在争议，一些人认为该法律的精度阈值仍然允许进行显著的追踪。
+**社区讨论**: 开发者论坛和社交媒体上充斥着对安全误判的不满，许多人称这些安全过滤器在真实编码中“无法使用”。部分用户已转向 API 或企业版以获取完整模型，另一些人则批评 Anthropic 将安全置于开发者体验之上。
 
-**标签**: `#privacy`, `#geolocation`, `#regulation`, `#data rights`, `#Virginia`
-
----
-
-<a id="item-6"></a>
-## [crustc：将整个 rustc 编译器翻译为 C 语言](https://github.com/FractalFir/crustc) ⭐️ 8.0/10
-
-一位名为 FractalFir 的开发者完成了一项历时三年的项目，将整个 Rust 编译器（rustc）转译为 C 语言，创建了名为 crustc 的项目。这使得仅用 C 编译器即可构建 Rust 编译器，无需依赖 LLVM 或 GCC 后端。 该项目解决了 Rust 在缺乏 LLVM 或 GCC 支持的旧式或小众硬件上的自举问题，使 Rust 更具可移植性。它还为验证编译器正确性和探索替代编译路径开辟了新的可能性。 crustc 是已知的第 14 次将 Rust 编译为 C 的尝试，其目标是在没有 LLVM/GCC 后端的平台上支持自举。该项目尚未完全完成，但开发者已在 GitHub 上分享了源代码，供社区审查和贡献。
-
-hackernews · Philpax · 7月2日 22:57 · [社区讨论](https://news.ycombinator.com/item?id=48768464)
-
-**背景**: 自举（bootstrapping）是使用编译器编译自身的过程，通常需要同一语言的现有编译器。对于 Rust 而言，从源码构建 rustc 当前需要 Rust 编译器和 LLVM，这使得在没有这些工具的平台运行 Rust 变得困难。将 rustc 转译为 C 打破了这一依赖，因为 C 编译器几乎在所有平台上都可用。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://rustc-dev-guide.rust-lang.org/building/bootstrapping/what-bootstrapping-does.html?trk=public_post_comment-text">What Bootstrapping does - Rust Compiler Development Guide</a></li>
-<li><a href="https://doc.rust-lang.org/unstable-book/compiler-environment-variables/RUSTC_BOOTSTRAP.html">RUSTC _ BOOTSTRAP - The Rust Unstable Book</a></li>
-<li><a href="https://github.com/dtolnay/bootstrap/">GitHub - dtolnay/ bootstrap : Bootstrapping rustc from source · GitHub</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 社区对这项奉献和技术成就表达了高度赞赏，有评论者指出这是第 14 次尝试并称赞其坚持。一些用户讨论了技术细节，例如使用多样双重编译（DDC）来验证编译器完整性，并将 crustc 与 LLVM 的 C 后端进行了比较。
-
-**标签**: `#Rust`, `#compiler`, `#bootstrapping`, `#transpilation`, `#systems programming`
+**标签**: `#AI/ML`, `#Anthropic`, `#Claude`, `#safety`, `#developer experience`
 
 ---
 
-<a id="item-7"></a>
-## [Linux 6.9 回归导致挂起时 LUKS 加密密钥未从内存中清除](https://mathstodon.xyz/@iblech/116769502749142438) ⭐️ 8.0/10
+<a id="item-16"></a>
+## [华为发布 Atlas 350 加速卡，搭载昇腾 950PR，算力达 H20 的 2.87 倍](https://t.me/zaihuapd/42329) ⭐️ 8.0/10
 
-Linux 内核 6.9 版本引入的一个回归问题导致 `cryptsetup luksSuspend` 命令在系统进入挂起到内存状态时，不再从内核内存中清除磁盘加密主密钥。该问题由一位 NixOS 开发者发现并报告，他还贡献了一个测试以防止未来再次出现此类回归。 这一回归削弱了 LUKS 磁盘加密的核心安全保证：即在挂起期间从内存中清除加密密钥，以保护数据免受冷启动或取证攻击。运行 Linux 6.9 及更高版本且依赖 `luksSuspend` 的用户，在系统休眠时其加密数据可能面临暴露风险。 该错误具体影响挂起到内存期间 `dm-crypt` 的密钥清除代码路径；主密钥仍保留在内核内存中而未被清除。最初有人认为这是 Debian 特有的问题，但后续讨论确认这是一个影响所有使用 Linux 6.9+ 发行版的上游内核回归。
-
-hackernews · IngoBlechschmid · 7月2日 15:25 · [社区讨论](https://news.ycombinator.com/item?id=48763035)
-
-**背景**: LUKS（Linux 统一密钥设置）是 Linux 磁盘加密的标准。当系统挂起到内存时，`luksSuspend` 命令本应从内核内存中清除解密主密钥，以防止攻击者（例如通过冷启动）从 RAM 中提取密钥。恢复后，用户必须重新输入密码才能恢复密钥。这一回归破坏了该保护机制，使得密钥在休眠期间仍留在内存中。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://github.com/guns/go-luks-suspend">GitHub - guns/go-luks-suspend: Lock encrypted LUKS volumes on suspend in Arch Linux · GitHub</a></li>
-<li><a href="https://github.com/vianney/arch-luks-suspend">GitHub - vianney/arch-luks-suspend: Lock encrypted root volume on suspend in Arch Linux · GitHub</a></li>
-<li><a href="https://drgn.readthedocs.io/en/latest/case_studies/dm_crypt_key.html">Recovering a dm - crypt Encryption Key — drgn 0.2.0+39.g9762697...</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 社区讨论内容充实，共 203 条评论。一些评论者最初质疑这是否是 Debian 特有的扩展而非上游问题，但其他人澄清这确实是一个内核回归。多位用户指出，此类安全漏洞很容易被忽略，因为一切看起来仍在正常工作，并称赞 NixOS 的测试基础设施发现了该问题。
-
-**标签**: `#Linux`, `#security`, `#disk encryption`, `#kernel regression`, `#LUKS`
-
----
-
-<a id="item-8"></a>
-## [Immich 3.0：自托管照片平台重大更新](https://github.com/immich-app/immich/discussions/29439) ⭐️ 8.0/10
-
-Immich 3.0 作为自托管照片和视频管理平台的重要更新已发布，带来了新功能和改进。此次发布引发了社区广泛讨论，超过 200 条评论涉及加密设置、部署体验和功能请求等话题。 此次发布意义重大，因为 Immich 是 Google Photos 领先的开源替代品，3.0 版本标志着以隐私为中心的自托管照片管理持续成熟。社区高度参与（408 分，205 条评论）显示了用户的强烈兴趣和实际采用，使其成为自托管生态系统的关键里程碑。 讨论中突出显示了一个来自本科生软件开发课程的学生贡献的 bug 修复，用户们积极分享使用 Hetzner 全盘加密和 Nginx 反向代理配合 Let's Encrypt SSL 的加密设置。一些用户表达了对端到端加密的需求，而另一些用户则质疑其在自托管场景中的必要性。
-
-hackernews · hashier · 7月2日 14:13 · [社区讨论](https://news.ycombinator.com/item?id=48761944)
-
-**背景**: Immich 是一个高性能的自托管照片和视频管理解决方案，作为 Google Photos 和 iCloud 等云服务的注重隐私的替代品。它提供 iOS 和 Android 移动应用，具有自动后台上传、人脸识别、相册共享和地图视图功能。该平台通常通过 Docker 部署，并可通过反向代理和 SSL 证书进行安全加固。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://github.com/immich-app/immich">GitHub - immich -app/ immich : High performance self - hosted photo ...</a></li>
-<li><a href="https://xtom.com/blog/self-hosted-photo-management-apps-ditch-google-icloud-photos/">The 15 Best Self - Hosted Photo Management Apps... | xTom</a></li>
-<li><a href="https://medium.com/@aleksej.gudkov/immich-encryption-ensuring-data-security-for-your-media-library-c423bd4ddd6f">Immich Encryption : Ensuring Data Security for Your Media... | Medium</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 社区反应非常积极，用户称 Immich 是“一款令人难以置信的软件，与 Google Photos 不相上下”，并分享了详细的部署设置。一位教授自豪地表示，看到自己课程中学生的 bug 修复被合并到此次发布中，而一些用户则就自托管设置中端到端加密的必要性展开了辩论。
-
-**标签**: `#self-hosted`, `#photo management`, `#open source`, `#immich`, `#privacy`
-
----
-
-<a id="item-9"></a>
-## [Postgres 事务：分布式系统的超能力](https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data) ⭐️ 8.0/10
-
-文章主张将工作流状态与 Postgres 数据共置，利用事务原子性作为出站模式等分布式协调模式的更简单替代方案。 每个工作流步骤成为一个数据库提交单元，将工作流推进与数据库事务一一对齐，从而消除了对单独消息队列的需求。
-
-hackernews · KraftyOne · 7月2日 18:38 · [社区讨论](https://news.ycombinator.com/item?id=48765639)
-
-**背景**: 在分布式系统中，确保跨多个服务（例如更新数据库和发送消息）的原子性具有挑战性。出站模式通过在同一数据库事务中存储消息来解决此问题，但仍需要单独的消息中继进程。将工作流状态直接共置于数据库中，利用数据库内置的 ACID 保证，更简单地实现相同目标。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://microservices.io/patterns/data/transactional-outbox.html">Pattern : Transactional outbox</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)">Atomicity (database systems ) - Wikipedia</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 社区评论中既有赞同也有辩论。一些用户赞扬原子性的好处并分享类似的内部解决方案，而另一些用户则担心数据库与工作流之间的紧密耦合，尽管承认在实践中通常可以接受。
-
-**标签**: `#Postgres`, `#distributed systems`, `#transactions`, `#workflow`, `#database`
-
----
-
-<a id="item-10"></a>
-## [Meta 计算策略预示新云模式转变](https://newsletter.semianalysis.com/p/meta-compute-everyone-wants-to-be) ⭐️ 8.0/10
-
-据报道，Meta 正在转向一种“新云”（neocloud）计算策略，推出了 SpaceX 2.0、Bedrock 2.0 等计划，并将推荐系统（RecSys）规模扩大 10 倍，这标志着整个行业正从传统超大规模云模式转型。 这一转变可能重塑 AI 基础设施格局，因为新云提供专业化、成本高效的 GPU 集群，挑战 AWS、Azure 和 Google Cloud 等超大规模云服务商的主导地位。对 Meta 而言，将推荐系统规模扩大 10 倍将直接影响其核心广告和内容推荐业务，可能提升用户参与度和收入。 文章提到了多个内部项目：SpaceX 2.0（可能是一个计算基础设施项目）、Bedrock 2.0（可能是一个基础模型或平台），以及推荐系统 10 倍扩展。还预告了即将推出的“ClusterMAX 排名”，暗示这是一个新的集群性能指标或基准。
-
-rss · Semianalysis · 7月2日 22:18
-
-**背景**: 新云是一种新型云服务商，专门提供针对 AI 工作负载优化的 GPU 集群，通常成本低于传统超大规模云服务商。它们填补了超大规模云服务商专注于通用计算所留下的市场空白。作为 AI 计算的最大消费者之一，Meta 正在探索新云模式，以对其基础设施获得更多控制权和效率，特别是在训练大规模推荐系统和 AI 模型方面。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://www.hivenet.com/post/post-neocloud-business-model-explained">Neocloud business model explained: how AI GPU clouds work | Hivenet</a></li>
-<li><a href="https://vast.ai/article/what-is-a-neocloud-business-model-explained">What Is a Neocloud ? The Business Model Explained</a></li>
-<li><a href="https://www.linkedin.com/pulse/rise-neoclouds-transforming-ai-infrastructure-era-andre-b2xye">The Rise of Neoclouds : Transforming AI Infrastructure in the Era of...</a></li>
-
-</ul>
-</details>
-
-**标签**: `#cloud computing`, `#AI infrastructure`, `#Meta`, `#neocloud`, `#recommendation systems`
-
----
-
-<a id="item-11"></a>
-## [Hierarchos：2.32 亿参数循环记忆增强模型初现潜力](https://www.reddit.com/r/MachineLearning/comments/1um123n/hierarchos_preliminary_findings_from_a_232m/) ⭐️ 8.0/10
-
-研究人员发布了 Hierarchos 的初步发现，这是一个 2.32 亿参数的循环记忆增强语言模型，它成功训练并保持了连贯性，采用了结合 RWKV、分层管理者/工作者循环、可微分的基于槽的长时记忆以及确定性后缀自动机的混合非 Transformer 架构。 这项工作证明了非 Transformer 架构可以扩展并保持连贯性，挑战了基于 Transformer 的模型的主导地位，并为语言建模提供了一条可能更具参数效率的路径。 关键的工程经验包括修复漂移状态处理和监督式 LTM 更新中的训练/推理一致性不匹配问题，以及通过实现激活钳位来解决 RWKV 通道混合中的数值稳定性问题。
-
-reddit · r/MachineLearning · /u/PhysicsDisastrous462 · 7月3日 01:48
-
-**背景**: 现代大型语言模型主要基于 Transformer 架构，该架构依赖于注意力机制。Hierarchos 探索了一种替代方法，使用循环状态、显式记忆检索和分层迭代计算来实现参数效率。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://arxiv.org/pdf/2406.19369">Mamba or RWKV : Exploring High-Quality and</a></li>
-<li><a href="https://www.rwkv.com/">RWKV Language Model</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Suffix_automaton">Suffix automaton - Wikipedia</a></li>
-
-</ul>
-</details>
-
-**标签**: `#machine learning`, `#language models`, `#recurrent architectures`, `#memory augmentation`, `#non-transformer`
-
----
-
-<a id="item-12"></a>
-## [证监会批准宇树科技科创板 IPO 注册](https://www.csrc.gov.cn/csrc/c105906/c7642867/content.shtml) ⭐️ 8.0/10
-
-2026 年 7 月 1 日，中国证监会正式批准宇树科技股份有限公司在上海证券交易所科创板首次公开发行股票的注册申请。这一批准允许这家仿生机器人制造商按照招股说明书推进股票发行。 此次 IPO 获批是宇树科技（人形与四足机器人领域的领先企业）的重要里程碑，也表明监管机构和市场对具身智能与机器人行业充满信心。上市将为其研发和产能扩张提供大量资金，可能加速全球人形机器人市场的竞争。 证监会要求宇树科技严格按照报送上交所的招股说明书和发行承销方案实施发行，并在注册至发行结束期间及时报告重大事项。宇树科技由王兴兴于 2016 年创立，最初专注于四足机器人，2024 年进入人形机器人市场，第二代产品售价约 1.6 万美元。
-
-telegram · zaihuapd · 7月2日 09:57
-
-**背景**: 科创板是上海证券交易所于 2019 年设立的板块，旨在支持高科技和创新型企业，类似于纳斯达克。宇树科技总部位于杭州，以高性能四足机器人（机器狗）闻名，近年来也涉足人形机器人。具身智能（Embodied AI）指通过物理身体与环境交互的人工智能系统，例如机器人，它融合了感知、认知和行动能力。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Unitree_Robotics">Unitree Robotics</a></li>
-<li><a href="https://www.unitree.com/">Unitree Robotics | Robot Dog_Quadruped_Humanoid Robotics ...</a></li>
-<li><a href="https://www.nvidia.com/en-us/glossary/embodied-ai/">What is Embodied AI ? | NVIDIA Glossary</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Unitree Robotics`, `#IPO`, `#robotics`, `#embodied AI`, `#China market`
-
----
-
-<a id="item-13"></a>
-## [花旗禁用 GPT-5.5，多家企业因 AI 成本飙升限制使用](https://www.404media.co/companies-are-throttling-employees-ai-use-because-its-too-expensive/) ⭐️ 8.0/10
-
-花旗银行自 2026 年 6 月 24 日起完全禁用 Claude Opus 4.6、4.7 及 GPT-5.5 等最新 AI 模型，理由是这些模型消耗的 AI 积分远超普通模型。Atlassian 的 AI 月支出从 2025 年 8 月的 500 万美元飙升至 2026 年 5 月的逾 1500 万美元，公司已终止无限使用并推出成本追踪面板。 这一趋势标志着企业 AI 采用发生重大转变，最初对无限使用 AI 的热情正与按用量计费的严酷现实发生碰撞。企业现在被迫在生产力提升与成本飙升之间寻求平衡，这可能会减缓各行业 AI 整合的步伐。 Adobe 决定不再续签无限使用 Claude 的合同，该合同已于 2026 年 6 月 30 日到期。亚马逊此前关闭了鼓励 AI 使用的内部排行榜，员工随后发现存在此前未知的 token 使用上限。
-
-telegram · zaihuapd · 7月2日 13:59
-
-**背景**: GPT-5.5 和 Claude Opus 等企业 AI 工具通常按 token（输入和输出）计费，这意味着成本直接随使用量增长。许多公司最初为员工提供无限访问以推动采用，但随着使用量激增，月度账单变得不可持续。现在企业正在实施 token 使用上限和积分制系统来控制开支。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://www.sysgeek.cn/gpt-5-5/">GPT - 5 . 5 重磅发布：迈向 AI 智能体的全能新世代 - 系统极客</a></li>
-<li><a href="https://www.genspark.ai/zh-tw/blog/seeing-agi-impact7">看見 AGI（7）： Token 鴻溝——為何無 限 制的 AI ...</a></li>
-
-</ul>
-</details>
-
-**标签**: `#AI`, `#enterprise`, `#cost management`, `#industry trend`
-
----
-
-<a id="item-14"></a>
-## [华为发布 Atlas 350 加速卡，搭载昇腾 950PR，性能达 H20 的 2.87 倍](https://t.me/zaihuapd/42329) ⭐️ 8.0/10
-
-在 2026 年华为中国合作伙伴大会上，华为正式发布并上市了搭载全新昇腾 950PR 处理器的 Atlas 350 AI 加速卡。华为声称该卡算力达到英伟达 H20 的 2.87 倍，并且是国内唯一支持 FP4 低精度推理的加速卡。 这一发布标志着华为在挑战英伟达 AI 加速卡市场主导地位方面迈出了重要一步，尤其是在出口限制背景下。Atlas 350 声称的性能和 FP4 支持，可能为中国 AI 公司在大规模模型推理方面提供一个有竞争力的国产替代方案。 Atlas 350 配备 112 GB HBM 内存，FP4 算力达 1.56 PFLOPS，TDP 为 600W。它可以在单卡上加载 700 亿参数模型，与前代相比显著降低了推理延迟和投资成本。
+在 2026 年华为中国合作伙伴大会上，华为正式发布并上市了搭载全新昇腾 950PR 处理器的 Atlas 350 AI 加速卡。华为声称该卡算力达到英伟达 H20 的 2.87 倍，并且是国内唯一支持 FP4 低精度推理的加速卡。 这一发布标志着华为在 AI 硬件市场挑战英伟达主导地位的重要一步，尤其是在推理工作负载方面。Atlas 350 宣称的性能和 FP4 支持可能降低大规模 AI 部署的成本和延迟，影响中国乃至全球 AI 加速器的竞争格局。 Atlas 350 配备 112 GB HBM 内存，FP4 算力达 1.56 PFLOPS，功耗 600W，单卡可加载 70B 参数模型。它是首款采用华为自研高带宽内存（HiBL）的昇腾芯片，带宽达 1.4 TB/s。
 
 telegram · zaihuapd · 7月3日 08:35
 
-**背景**: FP4（4 位浮点数）是一种低精度数据格式，可减少内存占用并加速大语言模型的推理，英伟达也在 Blackwell 架构 GPU 上支持该格式。昇腾 950PR 是华为最新的 AI 处理器，Atlas 350 是其商用加速卡形态。华为一直在开发昇腾系列，作为受美国对华出口限制的英伟达 GPU 的国产替代方案。
+**背景**: FP4（4 位浮点数）是一种低精度数据格式，可减少内存占用并加速推理，同时保持可接受的精度，因此对部署大型语言模型很有吸引力。昇腾 950PR 是华为最新的 AI 推理处理器，定位与英伟达 H20 和 B200 系列竞争，尤其适用于大语言模型推理的预填充阶段。华为自研的 HBM 内存（HiBL）旨在减少对外国内存供应商的依赖并提升性能。
 
 <details><summary>参考链接</summary>
 <ul>
 <li><a href="https://www.digitimes.com/news/a20260324PD210/huawei-ascend-performance-2026.html">Huawei's Ascend 950 PR debuts with nearly 3x H20 performance...</a></li>
+<li><a href="https://www.omniyq.com/en/sys-nd/501.html">Ascend 950 : A Milestone for Domestic AI Compute - Shenzhen Cloud...</a></li>
 <li><a href="https://www.spheron.network/blog/huawei-ascend-950-vs-nvidia-b300-b200-llm-inference-2026/">Huawei Ascend 950 vs NVIDIA B300 and B200 for... | Spheron Blog</a></li>
-<li><a href="https://www.scmp.com/tech/tech-trends/article/3347346/huawei-challenges-nvidia-powerful-new-ai-accelerator-card">Huawei challenges Nvidia with powerful new AI accelerator card</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI hardware`, `#Huawei`, `#Ascend`, `#accelerator card`, `#deep learning`
+**标签**: `#Huawei`, `#AI hardware`, `#Ascend`, `#Atlas 350`, `#FP4`
 
 ---
 
