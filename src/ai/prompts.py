@@ -20,10 +20,7 @@ Respond with valid JSON only:
 
 If there are no duplicates at all, return: {{"duplicates": []}}"""
 
-CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator building a daily digest for AI-focused readers.
-
-Your primary job is to keep the digest tightly focused on AI.
-If a piece is not substantially about AI, LLMs, machine learning, AI infrastructure, AI chips for training/inference, AI tooling, AI research, or AI policy/governance, it should score very low even if it is otherwise important tech news.
+CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator helping filter important technical and academic information.
 
 Score content on a 0-10 scale based on importance and relevance:
 
@@ -52,20 +49,14 @@ Score content on a 0-10 scale based on importance and relevance:
 - Spam or purely promotional
 - Off-topic content
 - Trivial updates
-- Important but non-AI news (consumer hardware, general cybersecurity, space, mobile phones, generic software engineering, general politics, etc.)
 
 Consider:
 - Technical depth and novelty
 - Potential impact on the field
 - Quality of writing/presentation
-- Relevance to AI/ML specifically; non-AI items should be penalized heavily
+- Relevance to software engineering, AI/ML, and systems research
 - Community discussion quality: insightful comments, diverse viewpoints, and debates increase value
 - Engagement signals: high upvotes/favorites with substantive discussion indicate community-validated importance
-
-Hard rules:
-- Score 0-2 if the item is not clearly AI-related.
-- Score 3-4 if the item is only loosely adjacent to AI.
-- Reserve 7+ for content that an AI-focused reader would likely consider worth reading today.
 """
 
 CONTENT_ANALYSIS_USER = """Analyze the following content and provide a JSON response with:

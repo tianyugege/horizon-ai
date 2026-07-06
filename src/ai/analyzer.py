@@ -14,21 +14,6 @@ from ..models import ContentItem
 
 DEFAULT_THROTTLE_SEC = 0.0
 
-AI_RELEVANCE_KEYWORDS = (
-    "artificial intelligence", "machine learning", "deep learning", "generative ai",
-    "genai", "llm", "language model", "foundation model", "multimodal",
-    "transformer", "diffusion", "moe", "embedding", "vector database",
-    "rag", "retrieval augmented", "prompt", "agent", "agentic", "fine-tun",
-    "inference", "training run", "open weights", "benchmark", "evals",
-    "dataset", "synthetic data", "reasoning model", "ai chip", "ai accelerator",
-    "npu", "h100", "h200", "h20", "b200", "mi300", "ascend", "atlas 300",
-    "atlas 350", "cuda", "tensor core",
-    "人工智能", "机器学习", "深度学习", "大模型", "语言模型", "多模态", "扩散模型",
-    "智能体", "提示词", "提示工程", "向量数据库", "嵌入", "检索增强", "微调",
-    "推理", "训练", "开源权重", "基准测试", "数据集", "合成数据", "模型评测",
-    "ai 芯片", "ai加速卡", "ai 加速卡", "算力", "昇腾", "英伟达 h20", "华为 atlas",
-)
-
 
 class ContentAnalyzer:
     """Analyzes content items using AI to determine importance."""
@@ -55,14 +40,6 @@ class ContentAnalyzer:
         config = getattr(self.client, "config", None)
         concurrency = getattr(config, "analysis_concurrency", 1)
         return max(concurrency, 1)
-
-    @staticmethod
-    def _looks_ai_related(*parts: Optional[str]) -> bool:
-        """Return True when the text contains strong signals of AI relevance."""
-        text = " ".join(part for part in parts if part).lower()
-        if not text:
-            return False
-        return any(keyword in text for keyword in AI_RELEVANCE_KEYWORDS)
 
     async def analyze_batch(self, items: List[ContentItem]) -> List[ContentItem]:
         throttle_sec = self._get_throttle_sec()
@@ -183,17 +160,3 @@ class ContentAnalyzer:
         item.ai_reason = result.get("reason", "")
         item.ai_summary = result.get("summary", item.title)
         item.ai_tags = result.get("tags", [])
-
-        # Hard guardrail: this digest should stay tightly AI-focused.
-        # If both the model output and source text lack clear AI signals,
-        # demote the item so it cannot pass the daily threshold by mistake.
-        if item.ai_score >= 7 and not self._looks_ai_related(
-            item.title,
-            item.ai_summary,
-            item.ai_reason,
-            " ".join(item.ai_tags),
-            item.content[:1200] if item.content else None,
-        ):
-            item.ai_score = 2.0
-            suffix = " Demoted because the item is not clearly AI-related."
-            item.ai_reason = ((item.ai_reason or "").strip() + suffix).strip()
