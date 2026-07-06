@@ -94,3 +94,47 @@ def test_analyze_batch_concurrent_preserves_order(monkeypatch):
     result = asyncio.run(analyzer.analyze_batch(items))
 
     assert [item.id for item in result] == [item.id for item in items]
+
+
+def test_looks_ai_related_accepts_clear_ai_signals():
+    analyzer = ContentAnalyzer(SimpleNamespace())
+
+    assert analyzer._looks_ai_related(
+        "Open-source LLM inference benchmark",
+        "Covers model serving, H20, and agent workflows",
+    )
+
+
+def test_looks_ai_related_rejects_non_ai_tech_news():
+    analyzer = ContentAnalyzer(SimpleNamespace())
+
+    assert not analyzer._looks_ai_related(
+        "NASA launched a repair satellite",
+        "General space mission update with no AI angle",
+    )
+
+
+def test_analyze_item_demotes_high_score_when_not_ai_related(monkeypatch):
+    item = _make_item("rss:test:offtopic")
+    item.title = "NASA launched a repair satellite"
+    item.content = "A general space operations update without any AI content."
+
+    client = SimpleNamespace()
+    analyzer = ContentAnalyzer(client)
+
+    async def fake_complete(*, system, user):
+        return """
+        {
+          "score": 8,
+          "reason": "Important engineering update",
+          "summary": "NASA deployed a new repair mission.",
+          "tags": ["space", "satellite"]
+        }
+        """
+
+    analyzer.client.complete = fake_complete
+
+    asyncio.run(analyzer._analyze_item(item))
+
+    assert item.ai_score == 2.0
+    assert "not clearly AI-related" in (item.ai_reason or "")
