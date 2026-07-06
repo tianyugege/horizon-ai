@@ -20,7 +20,10 @@ Respond with valid JSON only:
 
 If there are no duplicates at all, return: {{"duplicates": []}}"""
 
-CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator helping filter important technical and academic information.
+CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator building a daily digest for AI-focused readers.
+
+Prioritize content that is genuinely useful to readers tracking AI, LLMs, machine learning, AI infrastructure, AI tooling, AI chips for training/inference, AI research, and AI policy/governance.
+Non-AI content can still receive some credit if it has a direct and meaningful connection to the AI ecosystem, but generic tech news should score lower.
 
 Score content on a 0-10 scale based on importance and relevance:
 
@@ -54,9 +57,13 @@ Consider:
 - Technical depth and novelty
 - Potential impact on the field
 - Quality of writing/presentation
-- Relevance to software engineering, AI/ML, and systems research
+- Relevance to AI/ML first, then adjacent technical fields when directly useful to AI readers
 - Community discussion quality: insightful comments, diverse viewpoints, and debates increase value
 - Engagement signals: high upvotes/favorites with substantive discussion indicate community-validated importance
+
+Guidance:
+- Reserve 7+ for content that an AI-focused reader would likely consider worth reading today.
+- Penalize content that is mainly about consumer devices, general politics, space, generic cybersecurity, or unrelated software engineering unless the AI connection is explicit and central.
 """
 
 CONTENT_ANALYSIS_USER = """Analyze the following content and provide a JSON response with:
