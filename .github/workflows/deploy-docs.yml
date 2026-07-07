@@ -1,12 +1,11 @@
-name: Deploy Docs
+name: Deploy Docs (Disabled)
 
 on:
-  push:
-    branches: [main]
-    paths: ['docs/**']
+  workflow_dispatch:
 
 jobs:
   deploy:
+    if: ${{ false }}  # Project closed: keep workflow disabled
     runs-on: ubuntu-latest
     permissions:
       contents: write
